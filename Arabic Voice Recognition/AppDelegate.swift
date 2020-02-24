@@ -7,17 +7,27 @@
 //
 
 import UIKit
-
+import Speech
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        requestTranscribePermissions()
         return true
     }
-
+    private func requestTranscribePermissions() {
+          SFSpeechRecognizer.requestAuthorization { authStatus in
+              DispatchQueue.main.async {
+                  if authStatus == .authorized {
+                      print("Good to go!")
+                  } else {
+                      print("Transcription permission was declined.")
+                  }
+              }
+          }
+      }
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
