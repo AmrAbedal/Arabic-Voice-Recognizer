@@ -11,6 +11,7 @@ import AVFoundation
 import Speech
 
 class ViewController: UIViewController {
+    private lazy var viewModel = { return VoiceRecognitionViewModel() }()
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier:  "ar_SA"))!
     private let audioEngine = AVAudioEngine()
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
@@ -33,6 +34,9 @@ class ViewController: UIViewController {
               try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
               try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
               let inputNode = audioEngine.inputNode
+            
+            
+            
             recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
                 guard let recognitionRequest = recognitionRequest else { fatalError("Unable to create a SFSpeechAudioBufferRecognitionRequest object") }
                 recognitionRequest.shouldReportPartialResults = true
@@ -41,6 +45,8 @@ class ViewController: UIViewController {
                 if #available(iOS 13, *) {
                     recognitionRequest.requiresOnDeviceRecognition = false
                 }
+            
+            
             recognitionTask = speechRecognizer.recognitionTask(with: recognitionRequest) { result, error in
                   var isFinal = false
                   
@@ -60,6 +66,7 @@ class ViewController: UIViewController {
                       self.recognitionTask = nil
                   }
               }
+            
             let recordingFormat = inputNode.outputFormat(forBus: 0)
                   inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
                       self.recognitionRequest?.append(buffer)
