@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OUw-tb-bX9">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,62 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Arabic_Voice_Recognition" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bng-x3-hQZ">
+                                <rect key="frame" x="164" y="332" width="87" height="30"/>
+                                <state key="normal" title="Start Record"/>
+                                <connections>
+                                    <action selector="startOrStopRecordButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="11Y-gJ-Ddc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Bng-x3-hQZ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3S6-Sb-1Pe"/>
+                            <constraint firstItem="Bng-x3-hQZ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="8fH-0M-352"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="startOrStopButton" destination="Bng-x3-hQZ" id="6Y3-Cl-wSe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-148" y="128"/>
+        </scene>
+        <!--Speech Recognizer View Controller-->
+        <scene sceneID="dEB-TE-zOw">
+            <objects>
+                <viewController id="OUw-tb-bX9" customClass="SpeechRecognizerViewController" customModule="Arabic_Voice_Recognition" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qT5-7w-mOv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4D-jC-5Zp">
+                                <rect key="frame" x="163.5" y="438" width="87" height="30"/>
+                                <state key="normal" title="Start Record"/>
+                                <connections>
+                                    <action selector="startOrStopRecordButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3j7-DX-0NV"/>
+                                    <action selector="startRecordButtonTapped:" destination="OUw-tb-bX9" eventType="touchUpInside" id="aTg-dX-mXd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="n4D-jC-5Zp" firstAttribute="centerY" secondItem="nKc-dA-n51" secondAttribute="centerY" id="4Ty-hm-wuB"/>
+                            <constraint firstItem="n4D-jC-5Zp" firstAttribute="centerX" secondItem="nKc-dA-n51" secondAttribute="centerX" id="sbV-ca-SvF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nKc-dA-n51"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CoB-Mw-IAM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="628" y="76"/>
         </scene>
     </scenes>
 </document>
