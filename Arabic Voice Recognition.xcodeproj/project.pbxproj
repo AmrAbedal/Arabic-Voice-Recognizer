@@ -13,6 +13,12 @@
 		A0D13E1C24044829002E0CE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D13E1A24044829002E0CE9 /* Main.storyboard */; };
 		A0D13E1E2404482B002E0CE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0D13E1D2404482B002E0CE9 /* Assets.xcassets */; };
 		A0D13E212404482B002E0CE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D13E1F2404482B002E0CE9 /* LaunchScreen.storyboard */; };
+		A0D13E2B24046ACF002E0CE9 /* VoiceRecognitionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D13E2A24046ACF002E0CE9 /* VoiceRecognitionViewModel.swift */; };
+		A0D13E2D24046B74002E0CE9 /* VoiceCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D13E2C24046B74002E0CE9 /* VoiceCapture.swift */; };
+		A0D13E2F24046D43002E0CE9 /* SpeachRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D13E2E24046D43002E0CE9 /* SpeachRecognizer.swift */; };
+		A0D13E31240475C5002E0CE9 /* AVFoundationVoiceCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D13E30240475C5002E0CE9 /* AVFoundationVoiceCapture.swift */; };
+		A0D13E3324047604002E0CE9 /* DefaultSpeachRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D13E3224047604002E0CE9 /* DefaultSpeachRecognizer.swift */; };
+		A0D13E3524047A4A002E0CE9 /* SpeechRecognizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D13E3424047A4A002E0CE9 /* SpeechRecognizerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		A0D13E1D2404482B002E0CE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0D13E202404482B002E0CE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0D13E222404482B002E0CE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0D13E2A24046ACF002E0CE9 /* VoiceRecognitionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecognitionViewModel.swift; sourceTree = "<group>"; };
+		A0D13E2C24046B74002E0CE9 /* VoiceCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCapture.swift; sourceTree = "<group>"; };
+		A0D13E2E24046D43002E0CE9 /* SpeachRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeachRecognizer.swift; sourceTree = "<group>"; };
+		A0D13E30240475C5002E0CE9 /* AVFoundationVoiceCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVFoundationVoiceCapture.swift; sourceTree = "<group>"; };
+		A0D13E3224047604002E0CE9 /* DefaultSpeachRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSpeachRecognizer.swift; sourceTree = "<group>"; };
+		A0D13E3424047A4A002E0CE9 /* SpeechRecognizerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +71,12 @@
 				A0D13E1424044829002E0CE9 /* AppDelegate.swift */,
 				A0D13E1624044829002E0CE9 /* SceneDelegate.swift */,
 				A0D13E1824044829002E0CE9 /* ViewController.swift */,
+				A0D13E3424047A4A002E0CE9 /* SpeechRecognizerViewController.swift */,
+				A0D13E2C24046B74002E0CE9 /* VoiceCapture.swift */,
+				A0D13E30240475C5002E0CE9 /* AVFoundationVoiceCapture.swift */,
+				A0D13E2E24046D43002E0CE9 /* SpeachRecognizer.swift */,
+				A0D13E3224047604002E0CE9 /* DefaultSpeachRecognizer.swift */,
+				A0D13E2A24046ACF002E0CE9 /* VoiceRecognitionViewModel.swift */,
 				A0D13E1A24044829002E0CE9 /* Main.storyboard */,
 				A0D13E1D2404482B002E0CE9 /* Assets.xcassets */,
 				A0D13E1F2404482B002E0CE9 /* LaunchScreen.storyboard */,
@@ -139,7 +157,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0D13E1924044829002E0CE9 /* ViewController.swift in Sources */,
+				A0D13E3324047604002E0CE9 /* DefaultSpeachRecognizer.swift in Sources */,
+				A0D13E2F24046D43002E0CE9 /* SpeachRecognizer.swift in Sources */,
+				A0D13E2B24046ACF002E0CE9 /* VoiceRecognitionViewModel.swift in Sources */,
+				A0D13E2D24046B74002E0CE9 /* VoiceCapture.swift in Sources */,
 				A0D13E1524044829002E0CE9 /* AppDelegate.swift in Sources */,
+				A0D13E3524047A4A002E0CE9 /* SpeechRecognizerViewController.swift in Sources */,
+				A0D13E31240475C5002E0CE9 /* AVFoundationVoiceCapture.swift in Sources */,
 				A0D13E1724044829002E0CE9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
