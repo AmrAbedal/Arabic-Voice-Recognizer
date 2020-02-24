@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import RxSwift
 
 class VoiceRecognitionViewModel {
+    let textChangeSubject = BehaviorSubject<String?>(value: nil)
     let speexhRecognizer: SpeachRecognizer
     init(speexhRecognizer: SpeachRecognizer = DefaultSpeachRecognizer(voiceCapture: AVFoundationVoiceCapture())
     ) {
@@ -18,6 +20,7 @@ class VoiceRecognitionViewModel {
     func startSpeechRecognition() {
         do { try speexhRecognizer.startRecognize(textCompletion: { [weak self] text in
             print(text)
+            self?.textChangeSubject.onNext(text)
             
         }) } catch {
             print(error)
