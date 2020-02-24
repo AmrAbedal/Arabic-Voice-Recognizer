@@ -12,5 +12,5 @@ import AVFoundation
 protocol VoiceCapture {
     func startCapture(completion: @escaping (AVAudioPCMBuffer)->()) throws
     func stop()
-    
+    func start() throws
 }

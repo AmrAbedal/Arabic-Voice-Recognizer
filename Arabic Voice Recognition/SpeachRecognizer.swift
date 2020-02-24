@@ -10,5 +10,6 @@ import Foundation
 import Speech
 
 protocol SpeachRecognizer {
-    func startRecognize(textCompletion:@escaping (String)->())
+    func startRecognize(textCompletion:@escaping (String)->()) throws
+    func stop()
 }

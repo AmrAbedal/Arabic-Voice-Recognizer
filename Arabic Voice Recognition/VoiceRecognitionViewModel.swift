@@ -8,7 +8,23 @@
 
 import Foundation
 
-class VoiceRecognitionViewModel  {
+class VoiceRecognitionViewModel {
+    let speexhRecognizer: SpeachRecognizer
+    init(speexhRecognizer: SpeachRecognizer = DefaultSpeachRecognizer(voiceCapture: AVFoundationVoiceCapture())
+    ) {
+        self.speexhRecognizer = speexhRecognizer
+    }
     
+    func startSpeechRecognition() {
+        do { try speexhRecognizer.startRecognize(textCompletion: { [weak self] text in
+            print(text)
+            
+        }) } catch {
+            print(error)
+        }
+    }
+    func stopSpeachRecognition() {
+        speexhRecognizer.stop()
+    }
     
 }
