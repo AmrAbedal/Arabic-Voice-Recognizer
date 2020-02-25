@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OUw-tb-bX9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bFb-4G-lcW">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -7,37 +7,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Arabic_Voice_Recognition" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bng-x3-hQZ">
-                                <rect key="frame" x="164" y="332" width="87" height="30"/>
-                                <state key="normal" title="Start Record"/>
-                                <connections>
-                                    <action selector="startOrStopRecordButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="11Y-gJ-Ddc"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="Bng-x3-hQZ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3S6-Sb-1Pe"/>
-                            <constraint firstItem="Bng-x3-hQZ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="8fH-0M-352"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <connections>
-                        <outlet property="startOrStopButton" destination="Bng-x3-hQZ" id="6Y3-Cl-wSe"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-148" y="128"/>
-        </scene>
         <!--Speech Recognizer View Controller-->
         <scene sceneID="dEB-TE-zOw">
             <objects>
@@ -47,25 +16,89 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4D-jC-5Zp">
-                                <rect key="frame" x="163.5" y="438" width="87" height="30"/>
-                                <state key="normal" title="Start Record"/>
+                                <rect key="frame" x="157" y="733" width="100" height="99"/>
+                                <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="4SO-jh-cqH"/>
+                                    <constraint firstAttribute="width" secondItem="n4D-jC-5Zp" secondAttribute="height" multiplier="1:1" constant="1" id="CAl-Gx-kGA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="selected" title="Stop">
+                                    <color key="titleColor" red="0.63137254899999995" green="0.12549019610000001" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRaduis">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="startOrStopRecordButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3j7-DX-0NV"/>
                                     <action selector="startRecordButtonTapped:" destination="OUw-tb-bX9" eventType="touchUpInside" id="aTg-dX-mXd"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="انا اسمعك" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djM-3c-ouz">
+                                <rect key="frame" x="306.5" y="605.5" width="87.5" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vmE-Xs-kSp">
+                                <rect key="frame" x="206" y="675" width="188" height="31"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gKf-sP-6l3">
+                                        <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="البحث اوير ايتس" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipk-3X-EEm">
+                                        <rect key="frame" x="59" y="3" width="129" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="n4D-jC-5Zp" firstAttribute="centerY" secondItem="nKc-dA-n51" secondAttribute="centerY" id="4Ty-hm-wuB"/>
+                            <constraint firstItem="djM-3c-ouz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nKc-dA-n51" secondAttribute="leading" constant="20" id="5wR-p0-A8j"/>
+                            <constraint firstItem="n4D-jC-5Zp" firstAttribute="top" secondItem="vmE-Xs-kSp" secondAttribute="bottom" constant="27" id="K0p-bU-bDA"/>
+                            <constraint firstItem="vmE-Xs-kSp" firstAttribute="top" secondItem="djM-3c-ouz" secondAttribute="bottom" constant="42" id="TyW-Ek-FGK"/>
+                            <constraint firstItem="nKc-dA-n51" firstAttribute="trailing" secondItem="vmE-Xs-kSp" secondAttribute="trailing" constant="20" id="V7X-Rw-XJa"/>
+                            <constraint firstItem="nKc-dA-n51" firstAttribute="trailing" secondItem="djM-3c-ouz" secondAttribute="trailing" constant="20" id="kMh-e4-gDI"/>
                             <constraint firstItem="n4D-jC-5Zp" firstAttribute="centerX" secondItem="nKc-dA-n51" secondAttribute="centerX" id="sbV-ca-SvF"/>
+                            <constraint firstItem="nKc-dA-n51" firstAttribute="bottom" secondItem="n4D-jC-5Zp" secondAttribute="bottom" constant="30" id="yT7-VC-4fN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nKc-dA-n51"/>
                     </view>
+                    <navigationItem key="navigationItem" id="OB5-Da-APN"/>
+                    <connections>
+                        <outlet property="searchUberEatsApi" destination="gKf-sP-6l3" id="nJt-1h-fW4"/>
+                        <outlet property="textLabel" destination="djM-3c-ouz" id="O4C-BI-Dxs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CoB-Mw-IAM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="628" y="76"/>
+            <point key="canvasLocation" x="1537.68115942029" y="75.669642857142847"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5We-cY-NKx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bFb-4G-lcW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LYZ-sB-HpV">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OUw-tb-bX9" kind="relationship" relationship="rootViewController" id="F28-mC-aha"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0gH-eI-tP7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="739" y="76"/>
         </scene>
     </scenes>
 </document>
