@@ -37,7 +37,7 @@ class SpeechRecognizerViewController: UIViewController {
     
     @IBAction func startRecordButtonTapped(_ sender: UIButton) {
         if searchUberEatsApi.isOn {
-            
+            viewModel.search()
         } else {
             viewModel.startSpeechRecognition()
         }
