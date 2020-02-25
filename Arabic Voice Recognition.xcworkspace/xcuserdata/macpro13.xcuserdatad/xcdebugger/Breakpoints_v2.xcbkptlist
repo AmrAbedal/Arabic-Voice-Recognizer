@@ -7,68 +7,20 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2316852A-FC4B-4B14-83F6-0B0ACE1F74A6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Arabic Voice Recognition/Presetation/VoiceRecognitionViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "search()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5B07E537-C690-473B-8AA0-CBB73607F464"
+            uuid = "00FD3266-59EE-4EF0-BC4B-905252EA7163"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Arabic Voice Recognition/Presetation/SpeechRecognizerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "getHtml()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8E1FAF8A-1D4E-476D-98F6-DEA2DE2A4C63"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Arabic Voice Recognition/Presetation/SpeechRecognizerViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "getResturantFrom(html:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A18F9774-E42D-4C41-8FCC-FEAA5ED7145B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Arabic Voice Recognition/Presetation/SpeechRecognizerViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "getResturantFrom(html:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "A18F9774-E42D-4C41-8FCC-FEAA5ED7145B - 73afb0c0f9ecf948"
+                  uuid = "00FD3266-59EE-4EF0-BC4B-905252EA7163 - 73afb0c0f9ecf948"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -80,74 +32,10 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "82"
                   endingLineNumber = "82"
-                  offsetFromSymbolStart = "837">
-               </Location>
-               <Location
-                  uuid = "A18F9774-E42D-4C41-8FCC-FEAA5ED7145B - 73afb0c0f9ecf948"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Arabic_Voice_Recognition.SpeechRecognizerViewController.getResturantFrom(html: Swift.String) -&gt; ()"
-                  moduleName = "Arabic Voice Recognition"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macpro13/Documents/Arabic%20Voice%20Recognition/Arabic%20Voice%20Recognition/Presetation/SpeechRecognizerViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "82"
-                  endingLineNumber = "82"
-                  offsetFromSymbolStart = "1370">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "078D0565-DEC5-4BD0-B935-1EE1DDA216FC"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Arabic Voice Recognition/Presetation/SpeechRecognizerViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "getHtml()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2C126085-06CA-44F6-A8A4-5E361B1A7F58"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Arabic Voice Recognition/Presetation/SpeechRecognizerViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "getResturantFrom(html:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2C126085-06CA-44F6-A8A4-5E361B1A7F58 - 73afb0c0f9ecf948"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Arabic_Voice_Recognition.SpeechRecognizerViewController.getResturantFrom(html: Swift.String) -&gt; ()"
-                  moduleName = "Arabic Voice Recognition"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macpro13/Documents/Arabic%20Voice%20Recognition/Arabic%20Voice%20Recognition/Presetation/SpeechRecognizerViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "81"
-                  endingLineNumber = "81"
                   offsetFromSymbolStart = "421">
                </Location>
                <Location
-                  uuid = "2C126085-06CA-44F6-A8A4-5E361B1A7F58 - 7d428516c42fbe52"
+                  uuid = "00FD3266-59EE-4EF0-BC4B-905252EA7163 - 7d428516c42fbe52"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -157,8 +45,8 @@
                   urlString = "file:///Users/macpro13/Documents/Arabic%20Voice%20Recognition/Arabic%20Voice%20Recognition/Presetation/SpeechRecognizerViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "81"
-                  endingLineNumber = "81"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
                   offsetFromSymbolStart = "29">
                </Location>
             </Locations>

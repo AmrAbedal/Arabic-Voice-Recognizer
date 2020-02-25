@@ -13,7 +13,8 @@ import SwiftSoup
 
 
 class SpeechRecognizerViewController: UIViewController {
-    
+    private var resturants: [String] = []
+    @IBOutlet weak var ResturantTableView: UITableView!
     @IBOutlet weak var webView: WKWebView!
     private var disposeBag = DisposeBag()
     private lazy var viewModel = {
@@ -59,6 +60,7 @@ class SpeechRecognizerViewController: UIViewController {
         sender.isSelected = !sender.isSelected
     }
 }
+
 extension SpeechRecognizerViewController : WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         getHtml()
@@ -79,12 +81,30 @@ extension SpeechRecognizerViewController : WKNavigationDelegate {
             let doc: Document = try SwiftSoup.parse(html)
             let link: Elements = try doc.getElementsByClass("ap aq ar as dl bf be bd")
             print(link.array().map({ try? $0.text()}))
+            if let resturants = link.array().map({ try? $0.text()}) as? [String] {
+                handleResturants( restrantsNames: resturants)
+            }
+           
         } catch Exception.Error(let type, let message) {
             print(message)
         } catch {
             print("error")
         }
         
+    }
+    private func handleResturants(restrantsNames: [String]) {
+        resturants = restrantsNames
+        ResturantTableView.reloadData()
+    }
+}
+extension SpeechRecognizerViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return resturants.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ResturantCell") as! UITableViewCell
+        cell.textLabel?.text = resturants[indexPath.row]
+        return cell
     }
 }
 
