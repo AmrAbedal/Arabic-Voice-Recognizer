@@ -8,9 +8,12 @@
 
 import Foundation
 import RxSwift
+import SwiftSoup
 
 class VoiceRecognitionViewModel {
     let textChangeSubject = BehaviorSubject<String?>(value: nil)
+    let resturantListSubject = BehaviorSubject<[String]?>(value: nil)
+
     let speexhRecognizer: SpeachRecognizer
     init(speexhRecognizer: SpeachRecognizer = DefaultSpeachRecognizer(voiceCapture: AVFoundationVoiceCapture())
     ) {
@@ -30,20 +33,23 @@ class VoiceRecognitionViewModel {
         speexhRecognizer.stop()
     }
     func search() {
-        let url = URL(string: "https://www.ubereats.com/en-EG/search?pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMktvc2hhcnklMjBFbCUyMFRhaHJpciUyMiUyQyUyMnJlZmVyZW5jZSUyMiUzQSUyMkNoSUp4eXJEWkdzLVdCUVJocEVaREpmVjVQMCUyMiUyQyUyMnJlZmVyZW5jZVR5cGUlMjIlM0ElMjJnb29nbGVfcGxhY2VzJTIyJTJDJTIybGF0aXR1ZGUlMjIlM0EzMC4wNjY5NzU2JTJDJTIybG9uZ2l0dWRlJTIyJTNBMzEuMzM2NDI3Njk5OTk5OTk4JTdE&q=Fast%20Food")!
-
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else {
-                print("\(error)")
-                return
-            }
-
-            let string = String(data: data, encoding: .utf8)
-
-            print("\(string)")
-        }
-
-        task.resume()
+        
     }
-    
+    func getResturantFrom(html: String) {
+           do {
+               let html: String = html;
+               let doc: Document = try SwiftSoup.parse(html)
+               let link: Elements = try doc.getElementsByClass("ap aq ar as dl bf be bd")
+               print(link.array().map({ try? $0.text()}))
+               if let resturants = link.array().map({ try? $0.text()}) as? [String] {
+                resturantListSubject.onNext(resturants)
+               }
+              
+           } catch Exception.Error(let type, let message) {
+               print(message)
+           } catch {
+               print("error")
+           }
+           
+       }
 }
