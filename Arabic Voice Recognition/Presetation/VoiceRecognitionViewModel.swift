@@ -30,7 +30,7 @@ class VoiceRecognitionViewModel {
         speexhRecognizer.stop()
     }
     func search() {
-        let url = URL(string: "https://www.ubereats.com/en-EG/search?pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMktvc2hhcnklMjBFbCUyMFRhaHJpciUyMiUyQyUyMnJlZmVyZW5jZSUyMiUzQSUyMkNoSUp4eXJEWkdzLVdCUVJocEVaREpmVjVQMCUyMiUyQyUyMnJlZmVyZW5jZVR5cGUlMjIlM0ElMjJnb29nbGVfcGxhY2VzJTIyJTJDJTIybGF0aXR1ZGUlMjIlM0EzMC4wNjY5NzU2JTJDJTIybG9uZ2l0dWRlJTIyJTNBMzEuMzM2NDI3Njk5OTk5OTk4JTdE&q=Fast%20Food")!
+        let url = URL(string: "https://www.ubereats.com/en-US/search?q=%D8%A7%D9%84%D9%83%D8%B4%D8%B1%D9%8A")!
 
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {

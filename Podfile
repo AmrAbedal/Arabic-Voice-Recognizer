@@ -7,5 +7,7 @@ target 'Arabic Voice Recognition' do
 
   # Pods for Arabic Voice Recognition
   pod 'RxSwift', '~> 5'
+  pod 'SwiftSoup'
+
 
 end
