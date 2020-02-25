@@ -8,9 +8,12 @@
 
 import Foundation
 import RxSwift
+import SwiftSoup
 
 class VoiceRecognitionViewModel {
     let textChangeSubject = BehaviorSubject<String?>(value: nil)
+    let resturantListSubject = BehaviorSubject<[String]?>(value: nil)
+
     let speexhRecognizer: SpeachRecognizer
     init(speexhRecognizer: SpeachRecognizer = DefaultSpeachRecognizer(voiceCapture: AVFoundationVoiceCapture())
     ) {
@@ -32,4 +35,21 @@ class VoiceRecognitionViewModel {
     func search() {
         
     }
+    func getResturantFrom(html: String) {
+           do {
+               let html: String = html;
+               let doc: Document = try SwiftSoup.parse(html)
+               let link: Elements = try doc.getElementsByClass("ap aq ar as dl bf be bd")
+               print(link.array().map({ try? $0.text()}))
+               if let resturants = link.array().map({ try? $0.text()}) as? [String] {
+                resturantListSubject.onNext(resturants)
+               }
+              
+           } catch Exception.Error(let type, let message) {
+               print(message)
+           } catch {
+               print("error")
+           }
+           
+       }
 }

@@ -25,15 +25,7 @@ class SpeechRecognizerViewController: UIViewController {
     @IBOutlet weak var searchUberEatsApi: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadUberEats()
-        // Do any additional setup after loading the view.
         setSubscribers()
-    }
-    func loadUberEats() {
-        webView.navigationDelegate = self
-        let myURL = URL(string:"https://www.ubereats.com/en-US/search?q=%D8%A7%D9%84%D9%83%D8%B4%D8%B1%D9%8A")
-        let myRequest = URLRequest(url: myURL!)
-        webView.load(myRequest)
     }
     private func setSubscribers() {
         viewModel.textChangeSubject.subscribe({[weak self]
@@ -42,20 +34,33 @@ class SpeechRecognizerViewController: UIViewController {
                 self?.setText(text: text)
             }
         }).disposed(by: disposeBag)
+        viewModel.resturantListSubject.subscribe({[weak self]
+            event in
+            if let elemnt = event.element , let resturantsNames = elemnt {
+                self?.handleResturants(restrantsNames: resturantsNames)
+            }
+        }).disposed(by: disposeBag)
     }
     private func setText(text: String) {
         textLabel.text = text
+        if searchUberEatsApi.isOn {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                self.loadUberEats(text: text)
+            })
+        }
     }
+   private func loadUberEats(text: String) {
+          webView.navigationDelegate = self
+          let myURL = URL(string:"https://www.ubereats.com/en-US/search?q=%D8%A7%D9%84%D9%83%D8%B4%D8%B1%D9%8A")
+          let myRequest = URLRequest(url: myURL!)
+          webView.load(myRequest)
+      }
     
     @IBAction func startRecordButtonTapped(_ sender: UIButton) {
         if sender.isSelected {
             viewModel.stopSpeachRecognition()
         } else {
-            if searchUberEatsApi.isOn {
-                viewModel.search()
-            } else {
-                viewModel.startSpeechRecognition()
-            }
+            viewModel.startSpeechRecognition()
         }
         sender.isSelected = !sender.isSelected
     }
@@ -68,30 +73,11 @@ extension SpeechRecognizerViewController : WKNavigationDelegate {
     func getHtml() {
         webView.evaluateJavaScript("document.documentElement.outerHTML.toString()",
                                    completionHandler: { (html: Any?, error: Error?) in
-                                    print(html)
                                     if let content = html as? String {
-                                        self.getResturantFrom(html: content)
-                                        
+                                        self.viewModel.getResturantFrom(html: content)
                                     }
         }) }
     
-    func getResturantFrom(html: String) {
-        do {
-            let html: String = html;
-            let doc: Document = try SwiftSoup.parse(html)
-            let link: Elements = try doc.getElementsByClass("ap aq ar as dl bf be bd")
-            print(link.array().map({ try? $0.text()}))
-            if let resturants = link.array().map({ try? $0.text()}) as? [String] {
-                handleResturants( restrantsNames: resturants)
-            }
-           
-        } catch Exception.Error(let type, let message) {
-            print(message)
-        } catch {
-            print("error")
-        }
-        
-    }
     private func handleResturants(restrantsNames: [String]) {
         resturants = restrantsNames
         ResturantTableView.reloadData()
@@ -102,7 +88,7 @@ extension SpeechRecognizerViewController: UITableViewDataSource {
         return resturants.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ResturantCell") as! UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ResturantCell")!
         cell.textLabel?.text = resturants[indexPath.row]
         return cell
     }
