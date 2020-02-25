@@ -16,31 +16,56 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4D-jC-5Zp">
-                                <rect key="frame" x="163.5" y="802" width="87" height="30"/>
+                                <rect key="frame" x="157" y="733" width="100" height="99"/>
                                 <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Start Record">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="4SO-jh-cqH"/>
+                                    <constraint firstAttribute="width" secondItem="n4D-jC-5Zp" secondAttribute="height" multiplier="1:1" constant="1" id="CAl-Gx-kGA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <state key="selected" title="Stop">
+                                    <color key="titleColor" red="0.63137254899999995" green="0.12549019610000001" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRaduis">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="startRecordButtonTapped:" destination="OUw-tb-bX9" eventType="touchUpInside" id="aTg-dX-mXd"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gKf-sP-6l3">
-                                <rect key="frame" x="89" y="802" width="49" height="31"/>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="انا اسمعك" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djM-3c-ouz">
-                                <rect key="frame" x="326" y="138" width="68" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="انا اسمعك" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djM-3c-ouz">
+                                <rect key="frame" x="306.5" y="605.5" width="87.5" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vmE-Xs-kSp">
+                                <rect key="frame" x="206" y="675" width="188" height="31"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gKf-sP-6l3">
+                                        <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="البحث اوير ايتس" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipk-3X-EEm">
+                                        <rect key="frame" x="59" y="3" width="129" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.63137254899999995" green="0.12549019610000001" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="djM-3c-ouz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nKc-dA-n51" secondAttribute="leading" constant="20" id="5wR-p0-A8j"/>
-                            <constraint firstItem="gKf-sP-6l3" firstAttribute="centerY" secondItem="n4D-jC-5Zp" secondAttribute="centerY" id="7R9-Eq-4y7"/>
-                            <constraint firstItem="djM-3c-ouz" firstAttribute="top" secondItem="nKc-dA-n51" secondAttribute="top" constant="50" id="Pmy-yx-1a7"/>
-                            <constraint firstItem="n4D-jC-5Zp" firstAttribute="leading" secondItem="gKf-sP-6l3" secondAttribute="trailing" constant="27.5" id="fkS-8m-vB8"/>
+                            <constraint firstItem="n4D-jC-5Zp" firstAttribute="top" secondItem="vmE-Xs-kSp" secondAttribute="bottom" constant="27" id="K0p-bU-bDA"/>
+                            <constraint firstItem="vmE-Xs-kSp" firstAttribute="top" secondItem="djM-3c-ouz" secondAttribute="bottom" constant="42" id="TyW-Ek-FGK"/>
+                            <constraint firstItem="nKc-dA-n51" firstAttribute="trailing" secondItem="vmE-Xs-kSp" secondAttribute="trailing" constant="20" id="V7X-Rw-XJa"/>
                             <constraint firstItem="nKc-dA-n51" firstAttribute="trailing" secondItem="djM-3c-ouz" secondAttribute="trailing" constant="20" id="kMh-e4-gDI"/>
                             <constraint firstItem="n4D-jC-5Zp" firstAttribute="centerX" secondItem="nKc-dA-n51" secondAttribute="centerX" id="sbV-ca-SvF"/>
                             <constraint firstItem="nKc-dA-n51" firstAttribute="bottom" secondItem="n4D-jC-5Zp" secondAttribute="bottom" constant="30" id="yT7-VC-4fN"/>
@@ -73,7 +98,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0gH-eI-tP7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="627.536231884058" y="75.669642857142847"/>
+            <point key="canvasLocation" x="739" y="76"/>
         </scene>
     </scenes>
 </document>

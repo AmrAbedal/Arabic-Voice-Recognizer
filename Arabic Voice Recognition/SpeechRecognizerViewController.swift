@@ -36,13 +36,32 @@ class SpeechRecognizerViewController: UIViewController {
     }
     
     @IBAction func startRecordButtonTapped(_ sender: UIButton) {
-        if searchUberEatsApi.isOn {
-            viewModel.search()
+        if sender.isSelected {
+            viewModel.stopSpeachRecognition()
         } else {
-            viewModel.startSpeechRecognition()
+            if searchUberEatsApi.isOn {
+                      viewModel.search()
+                  } else {
+                      viewModel.startSpeechRecognition()
+                  }
         }
+        sender.isSelected = !sender.isSelected
+      
     }
     
     
+    
+}
+
+
+extension UIButton {
+    @IBInspectable var cornerRaduis: CGFloat  {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+        }
+    }
     
 }
