@@ -51,8 +51,16 @@ class SpeechRecognizerViewController: UIViewController {
     }
    private func loadUberEats(text: String) {
           webView.navigationDelegate = self
-          let myURL = URL(string:"https://www.ubereats.com/en-US/search?q=%D8%A7%D9%84%D9%83%D8%B4%D8%B1%D9%8A")
-          let myRequest = URLRequest(url: myURL!)
+    let baseString = "https://www.ubereats.com/en-US/search"
+    var comps = URLComponents(string: baseString)!
+    let keyQuery = URLQueryItem(name: "q", value: text)
+    comps.queryItems = [keyQuery ]
+    
+    guard let url = comps.url else {
+        print("Error in url arabic")
+        return
+    }
+          let myRequest = URLRequest(url: url)
           webView.load(myRequest)
       }
     
