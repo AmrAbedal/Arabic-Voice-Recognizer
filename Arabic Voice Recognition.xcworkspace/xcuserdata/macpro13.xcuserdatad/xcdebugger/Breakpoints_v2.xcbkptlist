@@ -80,7 +80,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "82"
                   endingLineNumber = "82"
-                  offsetFromSymbolStart = "595">
+                  offsetFromSymbolStart = "837">
                </Location>
                <Location
                   uuid = "A18F9774-E42D-4C41-8FCC-FEAA5ED7145B - 73afb0c0f9ecf948"
@@ -95,7 +95,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "82"
                   endingLineNumber = "82"
-                  offsetFromSymbolStart = "1098">
+                  offsetFromSymbolStart = "1370">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -142,24 +142,24 @@
                   urlString = "file:///Users/macpro13/Documents/Arabic%20Voice%20Recognition/Arabic%20Voice%20Recognition/Presetation/SpeechRecognizerViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "82"
-                  endingLineNumber = "82"
-                  offsetFromSymbolStart = "595">
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "421">
                </Location>
                <Location
-                  uuid = "2C126085-06CA-44F6-A8A4-5E361B1A7F58 - 73afb0c0f9ecf948"
+                  uuid = "2C126085-06CA-44F6-A8A4-5E361B1A7F58 - 7d428516c42fbe52"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Arabic_Voice_Recognition.SpeechRecognizerViewController.getResturantFrom(html: Swift.String) -&gt; ()"
+                  symbolName = "closure #1 (SwiftSoup.Element) -&gt; Swift.Optional&lt;Swift.String&gt; in Arabic_Voice_Recognition.SpeechRecognizerViewController.getResturantFrom(html: Swift.String) -&gt; ()"
                   moduleName = "Arabic Voice Recognition"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/macpro13/Documents/Arabic%20Voice%20Recognition/Arabic%20Voice%20Recognition/Presetation/SpeechRecognizerViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "82"
-                  endingLineNumber = "82"
-                  offsetFromSymbolStart = "1098">
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "29">
                </Location>
             </Locations>
          </BreakpointContent>

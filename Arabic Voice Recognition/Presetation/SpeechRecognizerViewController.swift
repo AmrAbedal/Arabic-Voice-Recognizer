@@ -77,8 +77,8 @@ extension SpeechRecognizerViewController : WKNavigationDelegate {
         do {
             let html: String = html;
             let doc: Document = try SwiftSoup.parse(html)
-            let link: Element = try doc.select("main").first()!
-         
+            let link: Elements = try doc.getElementsByClass("ap aq ar as dl bf be bd")
+            print(link.array().map({ try? $0.text()}))
         } catch Exception.Error(let type, let message) {
             print(message)
         } catch {
