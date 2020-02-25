@@ -61,6 +61,41 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A0B8ACDE2405BB4A0082E4BD /* Presetation */ = {
+			isa = PBXGroup;
+			children = (
+				A0D13E3424047A4A002E0CE9 /* SpeechRecognizerViewController.swift */,
+				A0D13E2A24046ACF002E0CE9 /* VoiceRecognitionViewModel.swift */,
+			);
+			path = Presetation;
+			sourceTree = "<group>";
+		};
+		A0B8ACDF2405BB910082E4BD /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				A0B8ACE02405BBAB0082E4BD /* Protocols */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		A0B8ACE02405BBAB0082E4BD /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A0D13E2C24046B74002E0CE9 /* VoiceCapture.swift */,
+				A0D13E2E24046D43002E0CE9 /* SpeachRecognizer.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A0B8ACE12405BBD40082E4BD /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				A0D13E30240475C5002E0CE9 /* AVFoundationVoiceCapture.swift */,
+				A0D13E3224047604002E0CE9 /* DefaultSpeachRecognizer.swift */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
 		A0D13E0824044829002E0CE9 = {
 			isa = PBXGroup;
 			children = (
@@ -84,16 +119,13 @@
 			children = (
 				A0D13E1424044829002E0CE9 /* AppDelegate.swift */,
 				A0D13E1624044829002E0CE9 /* SceneDelegate.swift */,
-				A0D13E3424047A4A002E0CE9 /* SpeechRecognizerViewController.swift */,
-				A0D13E2C24046B74002E0CE9 /* VoiceCapture.swift */,
-				A0D13E30240475C5002E0CE9 /* AVFoundationVoiceCapture.swift */,
-				A0D13E2E24046D43002E0CE9 /* SpeachRecognizer.swift */,
-				A0D13E3224047604002E0CE9 /* DefaultSpeachRecognizer.swift */,
-				A0D13E2A24046ACF002E0CE9 /* VoiceRecognitionViewModel.swift */,
+				A0D13E222404482B002E0CE9 /* Info.plist */,
+				A0B8ACDE2405BB4A0082E4BD /* Presetation */,
+				A0B8ACDF2405BB910082E4BD /* Domain */,
+				A0B8ACE12405BBD40082E4BD /* Framework */,
 				A0D13E1A24044829002E0CE9 /* Main.storyboard */,
 				A0D13E1D2404482B002E0CE9 /* Assets.xcassets */,
 				A0D13E1F2404482B002E0CE9 /* LaunchScreen.storyboard */,
-				A0D13E222404482B002E0CE9 /* Info.plist */,
 			);
 			path = "Arabic Voice Recognition";
 			sourceTree = "<group>";
