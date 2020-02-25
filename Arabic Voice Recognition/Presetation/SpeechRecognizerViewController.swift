@@ -25,6 +25,7 @@ class SpeechRecognizerViewController: UIViewController {
     @IBOutlet weak var searchUberEatsApi: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
+        webView.navigationDelegate = self
         setSubscribers()
     }
     private func setSubscribers() {
@@ -44,18 +45,16 @@ class SpeechRecognizerViewController: UIViewController {
     private func setText(text: String) {
         textLabel.text = text
         if searchUberEatsApi.isOn {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0, execute: {
                 self.loadUberEats(text: text)
             })
         }
     }
    private func loadUberEats(text: String) {
-          webView.navigationDelegate = self
     let baseString = "https://www.ubereats.com/en-US/search"
     var comps = URLComponents(string: baseString)!
     let keyQuery = URLQueryItem(name: "q", value: text)
-    comps.queryItems = [keyQuery ]
-    
+    comps.queryItems = [keyQuery]
     guard let url = comps.url else {
         print("Error in url arabic")
         return
@@ -66,6 +65,7 @@ class SpeechRecognizerViewController: UIViewController {
     
     @IBAction func startRecordButtonTapped(_ sender: UIButton) {
         if sender.isSelected {
+            textLabel.text = ""
             viewModel.stopSpeachRecognition()
         } else {
             viewModel.startSpeechRecognition()
