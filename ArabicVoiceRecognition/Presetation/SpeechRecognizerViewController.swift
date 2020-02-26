@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 import RxSwift
 import SwiftSoup
-
+import CoreLocation
 
 class SpeechRecognizerViewController: UIViewController {
     private var resturants: [String] = []
@@ -22,6 +22,7 @@ class SpeechRecognizerViewController: UIViewController {
     }()
     @IBOutlet weak var textLabel: UILabel!
     
+    @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var searchUberEatsApi: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,36 +42,32 @@ class SpeechRecognizerViewController: UIViewController {
                 self?.handleResturants(restrantsNames: resturantsNames)
             }
         }).disposed(by: disposeBag)
+        viewModel.loadUrlSubject.subscribe({[weak self]
+            event in
+            if let elemnt = event.element , let urlRequest = elemnt {
+                self?.webView.load(urlRequest)
+            }
+        }).disposed(by: disposeBag)
     }
     private func setText(text: String) {
         textLabel.text = text
         if searchUberEatsApi.isOn {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0, execute: {
-                self.loadUberEats(text: text)
-            })
+                self.viewModel.loadUberEats(text: text)
         }
     }
-   private func loadUberEats(text: String) {
-    let baseString = "https://www.ubereats.com/en-US/search"
-    var comps = URLComponents(string: baseString)!
-    let keyQuery = URLQueryItem(name: "q", value: text)
-    comps.queryItems = [keyQuery]
-    guard let url = comps.url else {
-        print("Error in url arabic")
-        return
-    }
-          let myRequest = URLRequest(url: url)
-          webView.load(myRequest)
-      }
-    
-    @IBAction func startRecordButtonTapped(_ sender: UIButton) {
-        if sender.isSelected {
-            textLabel.text = ""
-            viewModel.stopSpeachRecognition()
-        } else {
+    @IBAction func longPressAction(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            print("start")
+            recordButton.isSelected = true
+            recordButton.backgroundColor = #colorLiteral(red: 0.631372549, green: 0.1254901961, blue: 0.1294117647, alpha: 1)
             viewModel.startSpeechRecognition()
+        }  else if sender.state == .ended || sender.state == .cancelled {
+            print("FINISHED UP LONG PRESS")
+            viewModel.stopSpeachRecognition()
+            recordButton.backgroundColor = #colorLiteral(red: 0.8544178299, green: 0.5002352072, blue: 0.006223022287, alpha: 1)
+            recordButton.isSelected = false
         }
-        sender.isSelected = !sender.isSelected
+        
     }
 }
 
@@ -114,3 +111,4 @@ extension UIButton {
     }
     
 }
+

@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/macpro13/Documents/Arabic Voice Recognition/ArabicVoiceRecognition.xcodeproj">
+      location = "group:ArabicVoiceRecognition.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

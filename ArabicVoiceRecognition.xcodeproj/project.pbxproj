@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		62AB186370F04A1A1DD2D4D1 /* Pods_Arabic_Voice_Recognition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91974936C2A74AE5A18B33A6 /* Pods_Arabic_Voice_Recognition.framework */; };
 		A0D13E1524044829002E0CE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D13E1424044829002E0CE9 /* AppDelegate.swift */; };
 		A0D13E1724044829002E0CE9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D13E1624044829002E0CE9 /* SceneDelegate.swift */; };
 		A0D13E1C24044829002E0CE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D13E1A24044829002E0CE9 /* Main.storyboard */; };
@@ -19,13 +18,17 @@
 		A0D13E31240475C5002E0CE9 /* AVFoundationVoiceCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D13E30240475C5002E0CE9 /* AVFoundationVoiceCapture.swift */; };
 		A0D13E3324047604002E0CE9 /* DefaultSpeachRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D13E3224047604002E0CE9 /* DefaultSpeachRecognizer.swift */; };
 		A0D13E3524047A4A002E0CE9 /* SpeechRecognizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D13E3424047A4A002E0CE9 /* SpeechRecognizerViewController.swift */; };
+		A0F42EA22406FF8000C7511A /* LocationCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F42EA12406FF8000C7511A /* LocationCapture.swift */; };
+		A0F42EA42406FFBE00C7511A /* AreaNameCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F42EA32406FFBE00C7511A /* AreaNameCapture.swift */; };
+		A0F42EA624071C2000C7511A /* AppleCoreLocationCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F42EA524071C2000C7511A /* AppleCoreLocationCapture.swift */; };
+		A0F42EA824071C5700C7511A /* AppleAreaNameCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F42EA724071C5700C7511A /* AppleAreaNameCapture.swift */; };
+		DF174C41CBD554FAB2A3F456 /* Pods_ArabicVoiceRecognition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD31625E96581127FBF4CCA /* Pods_ArabicVoiceRecognition.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3E0F19A6190E5025DF6B5FAC /* Pods-Arabic Voice Recognition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arabic Voice Recognition.release.xcconfig"; path = "Target Support Files/Pods-Arabic Voice Recognition/Pods-Arabic Voice Recognition.release.xcconfig"; sourceTree = "<group>"; };
 		73ACF10E9703C7E74C0372FD /* Pods-Arabic Voice Recognition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arabic Voice Recognition.debug.xcconfig"; path = "Target Support Files/Pods-Arabic Voice Recognition/Pods-Arabic Voice Recognition.debug.xcconfig"; sourceTree = "<group>"; };
-		91974936C2A74AE5A18B33A6 /* Pods_Arabic_Voice_Recognition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Arabic_Voice_Recognition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0D13E1124044829002E0CE9 /* Arabic Voice Recognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Arabic Voice Recognition.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0D13E1124044829002E0CE9 /* ArabicVoiceRecognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArabicVoiceRecognition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D13E1424044829002E0CE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0D13E1624044829002E0CE9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A0D13E1B24044829002E0CE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,6 +41,13 @@
 		A0D13E30240475C5002E0CE9 /* AVFoundationVoiceCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVFoundationVoiceCapture.swift; sourceTree = "<group>"; };
 		A0D13E3224047604002E0CE9 /* DefaultSpeachRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSpeachRecognizer.swift; sourceTree = "<group>"; };
 		A0D13E3424047A4A002E0CE9 /* SpeechRecognizerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizerViewController.swift; sourceTree = "<group>"; };
+		A0F42EA12406FF8000C7511A /* LocationCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCapture.swift; sourceTree = "<group>"; };
+		A0F42EA32406FFBE00C7511A /* AreaNameCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaNameCapture.swift; sourceTree = "<group>"; };
+		A0F42EA524071C2000C7511A /* AppleCoreLocationCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleCoreLocationCapture.swift; sourceTree = "<group>"; };
+		A0F42EA724071C5700C7511A /* AppleAreaNameCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleAreaNameCapture.swift; sourceTree = "<group>"; };
+		A59ECA546B0E95B156979F34 /* Pods-ArabicVoiceRecognition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArabicVoiceRecognition.release.xcconfig"; path = "Target Support Files/Pods-ArabicVoiceRecognition/Pods-ArabicVoiceRecognition.release.xcconfig"; sourceTree = "<group>"; };
+		DA237A848B07C4C057730ECC /* Pods-ArabicVoiceRecognition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArabicVoiceRecognition.debug.xcconfig"; path = "Target Support Files/Pods-ArabicVoiceRecognition/Pods-ArabicVoiceRecognition.debug.xcconfig"; sourceTree = "<group>"; };
+		FCD31625E96581127FBF4CCA /* Pods_ArabicVoiceRecognition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArabicVoiceRecognition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62AB186370F04A1A1DD2D4D1 /* Pods_Arabic_Voice_Recognition.framework in Frameworks */,
+				DF174C41CBD554FAB2A3F456 /* Pods_ArabicVoiceRecognition.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +67,8 @@
 			children = (
 				73ACF10E9703C7E74C0372FD /* Pods-Arabic Voice Recognition.debug.xcconfig */,
 				3E0F19A6190E5025DF6B5FAC /* Pods-Arabic Voice Recognition.release.xcconfig */,
+				DA237A848B07C4C057730ECC /* Pods-ArabicVoiceRecognition.debug.xcconfig */,
+				A59ECA546B0E95B156979F34 /* Pods-ArabicVoiceRecognition.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -82,6 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				A0D13E2C24046B74002E0CE9 /* VoiceCapture.swift */,
+				A0F42EA12406FF8000C7511A /* LocationCapture.swift */,
+				A0F42EA32406FFBE00C7511A /* AreaNameCapture.swift */,
 				A0D13E2E24046D43002E0CE9 /* SpeachRecognizer.swift */,
 			);
 			path = Protocols;
@@ -91,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				A0D13E30240475C5002E0CE9 /* AVFoundationVoiceCapture.swift */,
+				A0F42EA724071C5700C7511A /* AppleAreaNameCapture.swift */,
+				A0F42EA524071C2000C7511A /* AppleCoreLocationCapture.swift */,
 				A0D13E3224047604002E0CE9 /* DefaultSpeachRecognizer.swift */,
 			);
 			path = Framework;
@@ -99,7 +115,7 @@
 		A0D13E0824044829002E0CE9 = {
 			isa = PBXGroup;
 			children = (
-				A0D13E1324044829002E0CE9 /* Arabic Voice Recognition */,
+				A0D13E1324044829002E0CE9 /* ArabicVoiceRecognition */,
 				A0D13E1224044829002E0CE9 /* Products */,
 				0EC7A64078AA83CA9B0C0AC0 /* Pods */,
 				C945208127BB5654E99BB653 /* Frameworks */,
@@ -109,12 +125,12 @@
 		A0D13E1224044829002E0CE9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A0D13E1124044829002E0CE9 /* Arabic Voice Recognition.app */,
+				A0D13E1124044829002E0CE9 /* ArabicVoiceRecognition.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A0D13E1324044829002E0CE9 /* Arabic Voice Recognition */ = {
+		A0D13E1324044829002E0CE9 /* ArabicVoiceRecognition */ = {
 			isa = PBXGroup;
 			children = (
 				A0D13E1424044829002E0CE9 /* AppDelegate.swift */,
@@ -127,13 +143,13 @@
 				A0D13E1D2404482B002E0CE9 /* Assets.xcassets */,
 				A0D13E1F2404482B002E0CE9 /* LaunchScreen.storyboard */,
 			);
-			path = "Arabic Voice Recognition";
+			path = ArabicVoiceRecognition;
 			sourceTree = "<group>";
 		};
 		C945208127BB5654E99BB653 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				91974936C2A74AE5A18B33A6 /* Pods_Arabic_Voice_Recognition.framework */,
+				FCD31625E96581127FBF4CCA /* Pods_ArabicVoiceRecognition.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -141,9 +157,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A0D13E1024044829002E0CE9 /* Arabic Voice Recognition */ = {
+		A0D13E1024044829002E0CE9 /* ArabicVoiceRecognition */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0D13E252404482B002E0CE9 /* Build configuration list for PBXNativeTarget "Arabic Voice Recognition" */;
+			buildConfigurationList = A0D13E252404482B002E0CE9 /* Build configuration list for PBXNativeTarget "ArabicVoiceRecognition" */;
 			buildPhases = (
 				298C33B6A4668DDAF5F67713 /* [CP] Check Pods Manifest.lock */,
 				A0D13E0D24044829002E0CE9 /* Sources */,
@@ -155,9 +171,9 @@
 			);
 			dependencies = (
 			);
-			name = "Arabic Voice Recognition";
+			name = ArabicVoiceRecognition;
 			productName = "Arabic Voice Recognition";
-			productReference = A0D13E1124044829002E0CE9 /* Arabic Voice Recognition.app */;
+			productReference = A0D13E1124044829002E0CE9 /* ArabicVoiceRecognition.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -175,7 +191,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A0D13E0C24044829002E0CE9 /* Build configuration list for PBXProject "Arabic Voice Recognition" */;
+			buildConfigurationList = A0D13E0C24044829002E0CE9 /* Build configuration list for PBXProject "ArabicVoiceRecognition" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -188,7 +204,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A0D13E1024044829002E0CE9 /* Arabic Voice Recognition */,
+				A0D13E1024044829002E0CE9 /* ArabicVoiceRecognition */,
 			);
 		};
 /* End PBXProject section */
@@ -222,7 +238,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Arabic Voice Recognition-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ArabicVoiceRecognition-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -235,15 +251,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Arabic Voice Recognition/Pods-Arabic Voice Recognition-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ArabicVoiceRecognition/Pods-ArabicVoiceRecognition-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Arabic Voice Recognition/Pods-Arabic Voice Recognition-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ArabicVoiceRecognition/Pods-ArabicVoiceRecognition-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Arabic Voice Recognition/Pods-Arabic Voice Recognition-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ArabicVoiceRecognition/Pods-ArabicVoiceRecognition-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -253,9 +269,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0F42EA624071C2000C7511A /* AppleCoreLocationCapture.swift in Sources */,
 				A0D13E3324047604002E0CE9 /* DefaultSpeachRecognizer.swift in Sources */,
+				A0F42EA22406FF8000C7511A /* LocationCapture.swift in Sources */,
 				A0D13E2F24046D43002E0CE9 /* SpeachRecognizer.swift in Sources */,
 				A0D13E2B24046ACF002E0CE9 /* VoiceRecognitionViewModel.swift in Sources */,
+				A0F42EA824071C5700C7511A /* AppleAreaNameCapture.swift in Sources */,
+				A0F42EA42406FFBE00C7511A /* AreaNameCapture.swift in Sources */,
 				A0D13E2D24046B74002E0CE9 /* VoiceCapture.swift in Sources */,
 				A0D13E1524044829002E0CE9 /* AppDelegate.swift in Sources */,
 				A0D13E3524047A4A002E0CE9 /* SpeechRecognizerViewController.swift in Sources */,
@@ -402,12 +422,12 @@
 		};
 		A0D13E262404482B002E0CE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 73ACF10E9703C7E74C0372FD /* Pods-Arabic Voice Recognition.debug.xcconfig */;
+			baseConfigurationReference = DA237A848B07C4C057730ECC /* Pods-ArabicVoiceRecognition.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FX2Z63PGT5;
-				INFOPLIST_FILE = "Arabic Voice Recognition/Info.plist";
+				INFOPLIST_FILE = ArabicVoiceRecognition/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -421,12 +441,12 @@
 		};
 		A0D13E272404482B002E0CE9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3E0F19A6190E5025DF6B5FAC /* Pods-Arabic Voice Recognition.release.xcconfig */;
+			baseConfigurationReference = A59ECA546B0E95B156979F34 /* Pods-ArabicVoiceRecognition.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FX2Z63PGT5;
-				INFOPLIST_FILE = "Arabic Voice Recognition/Info.plist";
+				INFOPLIST_FILE = ArabicVoiceRecognition/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -441,7 +461,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A0D13E0C24044829002E0CE9 /* Build configuration list for PBXProject "Arabic Voice Recognition" */ = {
+		A0D13E0C24044829002E0CE9 /* Build configuration list for PBXProject "ArabicVoiceRecognition" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0D13E232404482B002E0CE9 /* Debug */,
@@ -450,7 +470,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0D13E252404482B002E0CE9 /* Build configuration list for PBXNativeTarget "Arabic Voice Recognition" */ = {
+		A0D13E252404482B002E0CE9 /* Build configuration list for PBXNativeTarget "ArabicVoiceRecognition" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0D13E262404482B002E0CE9 /* Debug */,
