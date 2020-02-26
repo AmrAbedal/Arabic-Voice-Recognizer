@@ -13,7 +13,6 @@ protocol LocationCapture {
     func getLocation(completion: @escaping (CLLocation)->())
 }
 
-
 class AppleCoreLocationCapture: NSObject, LocationCapture, CLLocationManagerDelegate {
     private var completion: ((CLLocation)->())? = nil
     private let locationManager = CLLocationManager()
@@ -24,14 +23,15 @@ class AppleCoreLocationCapture: NSObject, LocationCapture, CLLocationManagerDele
            self.locationManager.requestWhenInUseAuthorization()
            self.locationManager.startUpdatingLocation()
        }
-    
-    func locationManagerDidResumeLocationUpdates(_ manager: CLLocationManager) {
-          guard let location = manager.location else {
-              return
-          }
-        completion?(location)
-      }
-     func getLocation(completion: @escaping (CLLocation) -> ()) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = manager.location else {
+                   return
+               }
+             completion?(location)
+        
+    }
+    func getLocation(completion: @escaping (CLLocation) -> ()) {
           self.completion = completion
       }
 }
+
