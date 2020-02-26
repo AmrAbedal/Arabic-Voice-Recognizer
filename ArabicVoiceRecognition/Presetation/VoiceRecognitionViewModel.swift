@@ -51,7 +51,6 @@ class VoiceRecognitionViewModel {
            } catch {
                print("error")
            }
-           
        }
      func loadUberEats(text: String) {
         let baseString = "https://www.ubereats.com/en-US/search"

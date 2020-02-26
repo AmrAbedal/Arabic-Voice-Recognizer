@@ -16,7 +16,6 @@ class SpeechRecognizerViewController: UIViewController {
     private var resturants: [String] = []
     @IBOutlet weak var ResturantTableView: UITableView!
     @IBOutlet weak var webView: WKWebView!
-    let locationManager = LocationManager()
     private var disposeBag = DisposeBag()
     private lazy var viewModel = {
         return VoiceRecognitionViewModel.init()
@@ -29,23 +28,6 @@ class SpeechRecognizerViewController: UIViewController {
         super.viewDidLoad()
         webView.navigationDelegate = self
         setSubscribers()
-        
-       
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        hanldeLocation()
-    }
-    private func hanldeLocation() {
-        guard let exposedLocation = self.locationManager.exposedLocation else {
-                   print("*** Error in \(#function): exposedLocation is nil")
-                   return
-               }
-               
-               self.locationManager.getPlace(for: exposedLocation) { placemark in
-                guard let placemark = placemark else { return }
-                print(placemark.areasOfInterest)
-        }
     }
     private func setSubscribers() {
         viewModel.textChangeSubject.subscribe({[weak self]
@@ -135,80 +117,80 @@ extension UIButton {
 
 
 
-
-
-import Foundation
-import CoreLocation
-
-
-class LocationManager: NSObject {
-    
-    
-    private let locationManager = CLLocationManager()
-    
-    override init() {
-        super.init()
-        self.locationManager.delegate = self
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.startUpdatingLocation()
-    }
-}
-
-
-// MARK: - Core Location Delegate
-extension LocationManager: CLLocationManagerDelegate {
-    
-    func locationManagerDidResumeLocationUpdates(_ manager: CLLocationManager) {
-        guard let location = manager.location else {
-            return
-        }
-        getPlace(for: location, completion: {
-            place in
-            print(place?.areasOfInterest)
-        })
-    }
-    func locationManager(_ manager: CLLocationManager,
-                         didChangeAuthorization status: CLAuthorizationStatus) {
-
-        switch status {
-    
-        case .notDetermined         : print("notDetermined")        // location permission not asked for yet
-        case .authorizedWhenInUse   : print("authorizedWhenInUse")  // location authorized
-        case .authorizedAlways      : print("authorizedAlways")     // location authorized
-        case .restricted            : print("restricted")           // TODO: handle
-        case .denied                : print("denied")               // TODO: handle
-        }
-    }
-}
-
-
-
-extension LocationManager {
-    
-    public var exposedLocation: CLLocation? {
-           return self.locationManager.location
-       }
-    
-    func getPlace(for location: CLLocation,
-                  completion: @escaping (CLPlacemark?) -> Void) {
-        
-        let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(location) { placemarks, error in
-            
-            guard error == nil else {
-                print("*** Error in \(#function): \(error!.localizedDescription)")
-                completion(nil)
-                return
-            }
-            
-            guard let placemark = placemarks?[0] else {
-                print("*** Error in \(#function): placemark is nil")
-                completion(nil)
-                return
-            }
-            
-            completion(placemark)
-        }
-    }
-}
+//
+//
+//import Foundation
+//import CoreLocation
+//
+//
+//class LocationManager: NSObject {
+//
+//
+//    private let locationManager = CLLocationManager()
+//
+//    override init() {
+//        super.init()
+//        self.locationManager.delegate = self
+//        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        self.locationManager.requestWhenInUseAuthorization()
+//        self.locationManager.startUpdatingLocation()
+//    }
+//}
+//
+//
+//// MARK: - Core Location Delegate
+//extension LocationManager: CLLocationManagerDelegate {
+//
+//    func locationManagerDidResumeLocationUpdates(_ manager: CLLocationManager) {
+//        guard let location = manager.location else {
+//            return
+//        }
+//        getPlace(for: location, completion: {
+//            place in
+//            print(place?.areasOfInterest)
+//        })
+//    }
+//    func locationManager(_ manager: CLLocationManager,
+//                         didChangeAuthorization status: CLAuthorizationStatus) {
+//
+//        switch status {
+//
+//        case .notDetermined         : print("notDetermined")        // location permission not asked for yet
+//        case .authorizedWhenInUse   : print("authorizedWhenInUse")  // location authorized
+//        case .authorizedAlways      : print("authorizedAlways")     // location authorized
+//        case .restricted            : print("restricted")           // TODO: handle
+//        case .denied                : print("denied")               // TODO: handle
+//        }
+//    }
+//}
+//
+//
+//
+//extension LocationManager {
+//
+//    public var exposedLocation: CLLocation? {
+//           return self.locationManager.location
+//       }
+//
+//    func getPlace(for location: CLLocation,
+//                  completion: @escaping (CLPlacemark?) -> Void) {
+//
+//        let geocoder = CLGeocoder()
+//        geocoder.reverseGeocodeLocation(location) { placemarks, error in
+//
+//            guard error == nil else {
+//                print("*** Error in \(#function): \(error!.localizedDescription)")
+//                completion(nil)
+//                return
+//            }
+//
+//            guard let placemark = placemarks?[0] else {
+//                print("*** Error in \(#function): placemark is nil")
+//                completion(nil)
+//                return
+//            }
+//
+//            completion(placemark)
+//        }
+//    }
+//}
