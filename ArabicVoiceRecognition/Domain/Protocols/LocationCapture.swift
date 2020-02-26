@@ -12,26 +12,3 @@ import CoreLocation
 protocol LocationCapture {
     func getLocation(completion: @escaping (CLLocation)->())
 }
-
-class AppleCoreLocationCapture: NSObject, LocationCapture, CLLocationManagerDelegate {
-    private var completion: ((CLLocation)->())? = nil
-    private let locationManager = CLLocationManager()
-      override  init() {
-          super.init()
-           self.locationManager.delegate = self
-           self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-           self.locationManager.requestWhenInUseAuthorization()
-           self.locationManager.startUpdatingLocation()
-       }
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = manager.location else {
-                   return
-               }
-             completion?(location)
-        
-    }
-    func getLocation(completion: @escaping (CLLocation) -> ()) {
-          self.completion = completion
-      }
-}
-
