@@ -22,6 +22,7 @@ class SpeechRecognizerViewController: UIViewController {
     }()
     @IBOutlet weak var textLabel: UILabel!
     
+    @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var searchUberEatsApi: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,27 +51,39 @@ class SpeechRecognizerViewController: UIViewController {
             })
         }
     }
-   private func loadUberEats(text: String) {
-    let baseString = "https://www.ubereats.com/en-US/search"
-    var comps = URLComponents(string: baseString)!
-    let keyQuery = URLQueryItem(name: "q", value: text)
-    comps.queryItems = [keyQuery]
-    guard let url = comps.url else {
-        print("Error in url arabic")
-        return
+    private func loadUberEats(text: String) {
+        let baseString = "https://www.ubereats.com/en-US/search"
+        var comps = URLComponents(string: baseString)!
+        let keyQuery = URLQueryItem(name: "q", value: text)
+        let location = URLQueryItem(name: "pl", value: "Ad Doqi")
+        comps.queryItems = [location,keyQuery]
+        guard let url = comps.url else {
+            print("Error in url arabic")
+            return
+        }
+        let myRequest = URLRequest(url: url)
+        webView.load(myRequest)
     }
-          let myRequest = URLRequest(url: url)
-          webView.load(myRequest)
-      }
+    
+    
+    @IBAction func longPressAction(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            print("start")
+            recordButton.isSelected = true
+            recordButton.backgroundColor = #colorLiteral(red: 0.631372549, green: 0.1254901961, blue: 0.1294117647, alpha: 1)
+            viewModel.startSpeechRecognition()
+        }  else if sender.state == .ended || sender.state == .cancelled {
+            print("FINISHED UP LONG PRESS")
+            viewModel.stopSpeachRecognition()
+            recordButton.backgroundColor = #colorLiteral(red: 0.8544178299, green: 0.5002352072, blue: 0.006223022287, alpha: 1)
+            recordButton.isSelected = false
+        }
+        
+    }
+    
     
     @IBAction func startRecordButtonTapped(_ sender: UIButton) {
-        if sender.isSelected {
-            textLabel.text = ""
-            viewModel.stopSpeachRecognition()
-        } else {
-            viewModel.startSpeechRecognition()
-        }
-        sender.isSelected = !sender.isSelected
+      
     }
 }
 
