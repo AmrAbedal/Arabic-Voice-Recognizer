@@ -13,6 +13,7 @@ import SwiftSoup
 class VoiceRecognitionViewModel {
     let textChangeSubject = BehaviorSubject<String?>(value: nil)
     let resturantListSubject = BehaviorSubject<[String]?>(value: nil)
+    let loadUrlSubject = BehaviorSubject<URLRequest?>(value: nil)
 
     let speexhRecognizer: SpeachRecognizer
     init(speexhRecognizer: SpeachRecognizer = DefaultSpeachRecognizer(voiceCapture: AVFoundationVoiceCapture())
@@ -52,4 +53,17 @@ class VoiceRecognitionViewModel {
            }
            
        }
+     func loadUberEats(text: String) {
+        let baseString = "https://www.ubereats.com/en-US/search"
+        var comps = URLComponents(string: baseString)!
+        let keyQuery = URLQueryItem(name: "q", value: text)
+        let location = URLQueryItem(name: "pl", value: "Ad Doqi")
+        comps.queryItems = [location,keyQuery]
+        guard let url = comps.url else {
+            print("Error in url arabic")
+            return
+        }
+        let myRequest = URLRequest(url: url)
+        loadUrlSubject.onNext(myRequest)
+    }
 }

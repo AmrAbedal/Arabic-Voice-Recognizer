@@ -37,7 +37,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="startRecordButtonTapped:" destination="OUw-tb-bX9" eventType="touchUpInside" id="aTg-dX-mXd"/>
                                     <outletCollection property="gestureRecognizers" destination="wdO-eV-QaU" appends="YES" id="W61-Vq-Ck8"/>
                                 </connections>
                             </button>

@@ -10,12 +10,13 @@ import UIKit
 import WebKit
 import RxSwift
 import SwiftSoup
-
+import CoreLocation
 
 class SpeechRecognizerViewController: UIViewController {
     private var resturants: [String] = []
     @IBOutlet weak var ResturantTableView: UITableView!
     @IBOutlet weak var webView: WKWebView!
+    let locationManager = LocationManager()
     private var disposeBag = DisposeBag()
     private lazy var viewModel = {
         return VoiceRecognitionViewModel.init()
@@ -28,6 +29,23 @@ class SpeechRecognizerViewController: UIViewController {
         super.viewDidLoad()
         webView.navigationDelegate = self
         setSubscribers()
+        
+       
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        hanldeLocation()
+    }
+    private func hanldeLocation() {
+        guard let exposedLocation = self.locationManager.exposedLocation else {
+                   print("*** Error in \(#function): exposedLocation is nil")
+                   return
+               }
+               
+               self.locationManager.getPlace(for: exposedLocation) { placemark in
+                guard let placemark = placemark else { return }
+                print(placemark.areasOfInterest)
+        }
     }
     private func setSubscribers() {
         viewModel.textChangeSubject.subscribe({[weak self]
@@ -42,30 +60,19 @@ class SpeechRecognizerViewController: UIViewController {
                 self?.handleResturants(restrantsNames: resturantsNames)
             }
         }).disposed(by: disposeBag)
+        viewModel.loadUrlSubject.subscribe({[weak self]
+            event in
+            if let elemnt = event.element , let urlRequest = elemnt {
+                self?.webView.load(urlRequest)
+            }
+        }).disposed(by: disposeBag)
     }
     private func setText(text: String) {
         textLabel.text = text
         if searchUberEatsApi.isOn {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0, execute: {
-                self.loadUberEats(text: text)
-            })
+                self.viewModel.loadUberEats(text: text)
         }
     }
-    private func loadUberEats(text: String) {
-        let baseString = "https://www.ubereats.com/en-US/search"
-        var comps = URLComponents(string: baseString)!
-        let keyQuery = URLQueryItem(name: "q", value: text)
-        let location = URLQueryItem(name: "pl", value: "Ad Doqi")
-        comps.queryItems = [location,keyQuery]
-        guard let url = comps.url else {
-            print("Error in url arabic")
-            return
-        }
-        let myRequest = URLRequest(url: url)
-        webView.load(myRequest)
-    }
-    
-    
     @IBAction func longPressAction(_ sender: UILongPressGestureRecognizer) {
         if sender.state == .began {
             print("start")
@@ -79,11 +86,6 @@ class SpeechRecognizerViewController: UIViewController {
             recordButton.isSelected = false
         }
         
-    }
-    
-    
-    @IBAction func startRecordButtonTapped(_ sender: UIButton) {
-      
     }
 }
 
@@ -126,4 +128,87 @@ extension UIButton {
         }
     }
     
+}
+
+
+
+
+
+
+
+
+import Foundation
+import CoreLocation
+
+
+class LocationManager: NSObject {
+    
+    
+    private let locationManager = CLLocationManager()
+    
+    override init() {
+        super.init()
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+    }
+}
+
+
+// MARK: - Core Location Delegate
+extension LocationManager: CLLocationManagerDelegate {
+    
+    func locationManagerDidResumeLocationUpdates(_ manager: CLLocationManager) {
+        guard let location = manager.location else {
+            return
+        }
+        getPlace(for: location, completion: {
+            place in
+            print(place?.areasOfInterest)
+        })
+    }
+    func locationManager(_ manager: CLLocationManager,
+                         didChangeAuthorization status: CLAuthorizationStatus) {
+
+        switch status {
+    
+        case .notDetermined         : print("notDetermined")        // location permission not asked for yet
+        case .authorizedWhenInUse   : print("authorizedWhenInUse")  // location authorized
+        case .authorizedAlways      : print("authorizedAlways")     // location authorized
+        case .restricted            : print("restricted")           // TODO: handle
+        case .denied                : print("denied")               // TODO: handle
+        }
+    }
+}
+
+
+
+extension LocationManager {
+    
+    public var exposedLocation: CLLocation? {
+           return self.locationManager.location
+       }
+    
+    func getPlace(for location: CLLocation,
+                  completion: @escaping (CLPlacemark?) -> Void) {
+        
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(location) { placemarks, error in
+            
+            guard error == nil else {
+                print("*** Error in \(#function): \(error!.localizedDescription)")
+                completion(nil)
+                return
+            }
+            
+            guard let placemark = placemarks?[0] else {
+                print("*** Error in \(#function): placemark is nil")
+                completion(nil)
+                return
+            }
+            
+            completion(placemark)
+        }
+    }
 }
