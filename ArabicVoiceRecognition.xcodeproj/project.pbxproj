@@ -18,6 +18,10 @@
 		A0D13E31240475C5002E0CE9 /* AVFoundationVoiceCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D13E30240475C5002E0CE9 /* AVFoundationVoiceCapture.swift */; };
 		A0D13E3324047604002E0CE9 /* DefaultSpeachRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D13E3224047604002E0CE9 /* DefaultSpeachRecognizer.swift */; };
 		A0D13E3524047A4A002E0CE9 /* SpeechRecognizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D13E3424047A4A002E0CE9 /* SpeechRecognizerViewController.swift */; };
+		A0F42EA22406FF8000C7511A /* LocationCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F42EA12406FF8000C7511A /* LocationCapture.swift */; };
+		A0F42EA42406FFBE00C7511A /* AreaNameCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F42EA32406FFBE00C7511A /* AreaNameCapture.swift */; };
+		A0F42EA624071C2000C7511A /* AppleCoreLocationCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F42EA524071C2000C7511A /* AppleCoreLocationCapture.swift */; };
+		A0F42EA824071C5700C7511A /* AppleAreaNameCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F42EA724071C5700C7511A /* AppleAreaNameCapture.swift */; };
 		DF174C41CBD554FAB2A3F456 /* Pods_ArabicVoiceRecognition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD31625E96581127FBF4CCA /* Pods_ArabicVoiceRecognition.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +41,10 @@
 		A0D13E30240475C5002E0CE9 /* AVFoundationVoiceCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVFoundationVoiceCapture.swift; sourceTree = "<group>"; };
 		A0D13E3224047604002E0CE9 /* DefaultSpeachRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSpeachRecognizer.swift; sourceTree = "<group>"; };
 		A0D13E3424047A4A002E0CE9 /* SpeechRecognizerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizerViewController.swift; sourceTree = "<group>"; };
+		A0F42EA12406FF8000C7511A /* LocationCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCapture.swift; sourceTree = "<group>"; };
+		A0F42EA32406FFBE00C7511A /* AreaNameCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaNameCapture.swift; sourceTree = "<group>"; };
+		A0F42EA524071C2000C7511A /* AppleCoreLocationCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleCoreLocationCapture.swift; sourceTree = "<group>"; };
+		A0F42EA724071C5700C7511A /* AppleAreaNameCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleAreaNameCapture.swift; sourceTree = "<group>"; };
 		A59ECA546B0E95B156979F34 /* Pods-ArabicVoiceRecognition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArabicVoiceRecognition.release.xcconfig"; path = "Target Support Files/Pods-ArabicVoiceRecognition/Pods-ArabicVoiceRecognition.release.xcconfig"; sourceTree = "<group>"; };
 		DA237A848B07C4C057730ECC /* Pods-ArabicVoiceRecognition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArabicVoiceRecognition.debug.xcconfig"; path = "Target Support Files/Pods-ArabicVoiceRecognition/Pods-ArabicVoiceRecognition.debug.xcconfig"; sourceTree = "<group>"; };
 		FCD31625E96581127FBF4CCA /* Pods_ArabicVoiceRecognition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArabicVoiceRecognition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				A0D13E2C24046B74002E0CE9 /* VoiceCapture.swift */,
+				A0F42EA12406FF8000C7511A /* LocationCapture.swift */,
+				A0F42EA32406FFBE00C7511A /* AreaNameCapture.swift */,
 				A0D13E2E24046D43002E0CE9 /* SpeachRecognizer.swift */,
 			);
 			path = Protocols;
@@ -95,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				A0D13E30240475C5002E0CE9 /* AVFoundationVoiceCapture.swift */,
+				A0F42EA724071C5700C7511A /* AppleAreaNameCapture.swift */,
+				A0F42EA524071C2000C7511A /* AppleCoreLocationCapture.swift */,
 				A0D13E3224047604002E0CE9 /* DefaultSpeachRecognizer.swift */,
 			);
 			path = Framework;
@@ -257,9 +269,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0F42EA624071C2000C7511A /* AppleCoreLocationCapture.swift in Sources */,
 				A0D13E3324047604002E0CE9 /* DefaultSpeachRecognizer.swift in Sources */,
+				A0F42EA22406FF8000C7511A /* LocationCapture.swift in Sources */,
 				A0D13E2F24046D43002E0CE9 /* SpeachRecognizer.swift in Sources */,
 				A0D13E2B24046ACF002E0CE9 /* VoiceRecognitionViewModel.swift in Sources */,
+				A0F42EA824071C5700C7511A /* AppleAreaNameCapture.swift in Sources */,
+				A0F42EA42406FFBE00C7511A /* AreaNameCapture.swift in Sources */,
 				A0D13E2D24046B74002E0CE9 /* VoiceCapture.swift in Sources */,
 				A0D13E1524044829002E0CE9 /* AppDelegate.swift in Sources */,
 				A0D13E3524047A4A002E0CE9 /* SpeechRecognizerViewController.swift in Sources */,

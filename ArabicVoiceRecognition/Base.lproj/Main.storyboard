@@ -10,7 +10,7 @@
         <!--Speech Recognizer View Controller-->
         <scene sceneID="dEB-TE-zOw">
             <objects>
-                <viewController id="OUw-tb-bX9" customClass="SpeechRecognizerViewController" customModule="Arabic_Voice_Recognition" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OUw-tb-bX9" customClass="SpeechRecognizerViewController" customModule="ArabicVoiceRecognition" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qT5-7w-mOv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -18,6 +18,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4D-jC-5Zp">
                                 <rect key="frame" x="157" y="733" width="100" height="99"/>
                                 <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="4SO-jh-cqH"/>
                                     <constraint firstAttribute="width" secondItem="n4D-jC-5Zp" secondAttribute="height" multiplier="1:1" constant="1" id="CAl-Gx-kGA"/>
@@ -36,13 +37,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="startRecordButtonTapped:" destination="OUw-tb-bX9" eventType="touchUpInside" id="aTg-dX-mXd"/>
+                                    <outletCollection property="gestureRecognizers" destination="wdO-eV-QaU" appends="YES" id="W61-Vq-Ck8"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="انا اسمعك" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djM-3c-ouz">
                                 <rect key="frame" x="306.5" y="605.5" width="87.5" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vmE-Xs-kSp">
@@ -54,22 +55,14 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="البحث اوير ايتس" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipk-3X-EEm">
                                         <rect key="frame" x="59" y="3" width="129" height="25.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Sb-h3-yCg">
-                                <rect key="frame" x="414" y="88" width="414" height="497.5"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a7Z-Me-vP4">
                                 <rect key="frame" x="0.0" y="88" width="414" height="517.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ResturantCell" id="wEB-4O-lqh">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -77,7 +70,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wEB-4O-lqh" id="IFN-wS-EGv">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -85,8 +80,17 @@
                                     <outlet property="delegate" destination="OUw-tb-bX9" id="u2G-bw-mo5"/>
                                 </connections>
                             </tableView>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Sb-h3-yCg">
+                                <rect key="frame" x="-414" y="88" width="414" height="497.5"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="djM-3c-ouz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nKc-dA-n51" secondAttribute="leading" constant="20" id="5wR-p0-A8j"/>
                             <constraint firstItem="a7Z-Me-vP4" firstAttribute="leading" secondItem="nKc-dA-n51" secondAttribute="leading" id="6CT-fB-XU2"/>
@@ -96,7 +100,7 @@
                             <constraint firstItem="0Sb-h3-yCg" firstAttribute="width" secondItem="qT5-7w-mOv" secondAttribute="width" id="PU0-2j-9sa"/>
                             <constraint firstItem="vmE-Xs-kSp" firstAttribute="top" secondItem="djM-3c-ouz" secondAttribute="bottom" constant="42" id="TyW-Ek-FGK"/>
                             <constraint firstItem="nKc-dA-n51" firstAttribute="trailing" secondItem="vmE-Xs-kSp" secondAttribute="trailing" constant="20" id="V7X-Rw-XJa"/>
-                            <constraint firstItem="0Sb-h3-yCg" firstAttribute="leading" secondItem="nKc-dA-n51" secondAttribute="trailing" id="how-Tb-ZaD"/>
+                            <constraint firstItem="0Sb-h3-yCg" firstAttribute="trailing" secondItem="nKc-dA-n51" secondAttribute="leading" id="how-Tb-ZaD"/>
                             <constraint firstItem="nKc-dA-n51" firstAttribute="trailing" secondItem="a7Z-Me-vP4" secondAttribute="trailing" id="jEW-zi-XxW"/>
                             <constraint firstItem="nKc-dA-n51" firstAttribute="trailing" secondItem="djM-3c-ouz" secondAttribute="trailing" constant="20" id="kMh-e4-gDI"/>
                             <constraint firstItem="djM-3c-ouz" firstAttribute="top" secondItem="a7Z-Me-vP4" secondAttribute="bottom" id="qxg-j6-9MO"/>
@@ -109,12 +113,18 @@
                     <navigationItem key="navigationItem" id="OB5-Da-APN"/>
                     <connections>
                         <outlet property="ResturantTableView" destination="a7Z-Me-vP4" id="R5J-RP-ToA"/>
+                        <outlet property="recordButton" destination="n4D-jC-5Zp" id="BK4-I9-lml"/>
                         <outlet property="searchUberEatsApi" destination="gKf-sP-6l3" id="nJt-1h-fW4"/>
                         <outlet property="textLabel" destination="djM-3c-ouz" id="O4C-BI-Dxs"/>
                         <outlet property="webView" destination="0Sb-h3-yCg" id="kfZ-L0-ac2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CoB-Mw-IAM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="wdO-eV-QaU">
+                    <connections>
+                        <action selector="longPressAction:" destination="OUw-tb-bX9" id="NB0-Sh-e7L"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1537.68115942029" y="75.669642857142847"/>
         </scene>
