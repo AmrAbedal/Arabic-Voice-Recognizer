@@ -88,7 +88,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1F64084C-AB7E-4E29-920B-3C5DB8045858"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ArabicVoiceRecognition/Presetation/SpeechRecognizerViewController.swift"
@@ -129,6 +129,22 @@
             startingLineNumber = "48"
             endingLineNumber = "48"
             landmarkName = "setSubscribers()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E1A0A50E-9D83-4822-8F7E-4C14778361F3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ArabicVoiceRecognition/Presetation/VoiceRecognitionViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "loadUberEats(text:Area:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
