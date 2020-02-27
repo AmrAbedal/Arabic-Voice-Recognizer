@@ -52,8 +52,8 @@ class SpeechRecognizerViewController: UIViewController {
     private func setText(text: String) {
         textLabel.text = text
         if searchUberEatsApi.isOn {
-                       self.viewModel.loadResturantsWithUberEats(text: text)
-                   }
+            self.viewModel.loadResturantsWithUberEats(text: text)
+        }
     }
     @IBAction func longPressAction(_ sender: UILongPressGestureRecognizer) {
         if sender.state == .began {
@@ -75,7 +75,7 @@ extension SpeechRecognizerViewController : WKNavigationDelegate {
         getHtml()
     }
     func getHtml() {
-        webView.evaluateJavaScript("document.documentElement.outerHTML.toString()",
+        webView.evaluateJavaScript(Constants.getHtmlEvaluator,
                                    completionHandler: { (html: Any?, error: Error?) in
                                     if let content = html as? String {
                                         self.viewModel.getResturantFrom(html: content)

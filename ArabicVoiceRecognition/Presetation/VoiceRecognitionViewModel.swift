@@ -60,11 +60,11 @@ class VoiceRecognitionViewModel {
         })
     }
     private func loadUberEats(text: String,Area: String) {
-        let baseString = "https://www.ubereats.com/en-US/search"
+        let baseString =  Constants.uberSearch
                var comps = URLComponents(string: baseString)!
-               let keyQuery = URLQueryItem(name: "q", value: text)
-               let location = URLQueryItem(name: "pl", value: Area)
-               comps.queryItems = [location,keyQuery]
+        let searchQuery = URLQueryItem(name:Constants.searchTextKey, value: text)
+        let areaKey = URLQueryItem(name:Constants.areaTextKey, value: Area)
+               comps.queryItems = [areaKey,searchQuery]
                guard let url = comps.url else {
                    print("Error in url arabic")
                    return
