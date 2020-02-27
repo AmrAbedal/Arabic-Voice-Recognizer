@@ -10,5 +10,5 @@ import Foundation
 import CoreLocation
 
 protocol AreaNameCapture {
-    func getAreaName(completion: @escaping (String)->() )
+    func getAreaName(onlyOne: Bool,completion: @escaping (String)->() )
 }

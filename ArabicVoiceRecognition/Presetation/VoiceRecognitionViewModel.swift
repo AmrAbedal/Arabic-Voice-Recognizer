@@ -10,6 +10,8 @@ import Foundation
 import RxSwift
 import SwiftSoup
 
+
+
 class VoiceRecognitionViewModel {
     let textChangeSubject = BehaviorSubject<String?>(value: nil)
     let resturantListSubject = BehaviorSubject<[String]?>(value: nil)
@@ -35,9 +37,6 @@ class VoiceRecognitionViewModel {
     func stopSpeachRecognition() {
         speexhRecognizer.stop()
     }
-    func search() {
-        
-    }
     func getResturantFrom(html: String) {
            do {
                let html: String = html;
@@ -54,10 +53,10 @@ class VoiceRecognitionViewModel {
                print("error")
            }
        }
-     func loadUberEats(text: String) {
-        areaCapture.getAreaName( completion: {
+     func loadResturantsWithUberEats(text: String) {
+        areaCapture.getAreaName( onlyOne: true, completion: {
             areaName in
-            self.loadUberEats(text: text, Area: areaName)
+                self.loadUberEats(text: text, Area: areaName)
         })
     }
     private func loadUberEats(text: String,Area: String) {
