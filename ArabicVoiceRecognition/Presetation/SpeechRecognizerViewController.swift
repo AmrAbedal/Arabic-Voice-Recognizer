@@ -52,7 +52,7 @@ class SpeechRecognizerViewController: UIViewController {
     private func setText(text: String) {
         textLabel.text = text
         if searchUberEatsApi.isOn {
-                self.viewModel.loadUberEats(text: text)
+            self.viewModel.loadResturantsWithUberEats(text: text)
         }
     }
     @IBAction func longPressAction(_ sender: UILongPressGestureRecognizer) {
@@ -67,7 +67,6 @@ class SpeechRecognizerViewController: UIViewController {
             recordButton.backgroundColor = #colorLiteral(red: 0.8544178299, green: 0.5002352072, blue: 0.006223022287, alpha: 1)
             recordButton.isSelected = false
         }
-        
     }
 }
 
@@ -76,7 +75,7 @@ extension SpeechRecognizerViewController : WKNavigationDelegate {
         getHtml()
     }
     func getHtml() {
-        webView.evaluateJavaScript("document.documentElement.outerHTML.toString()",
+        webView.evaluateJavaScript(Constants.getHtmlEvaluator,
                                    completionHandler: { (html: Any?, error: Error?) in
                                     if let content = html as? String {
                                         self.viewModel.getResturantFrom(html: content)
@@ -97,18 +96,5 @@ extension SpeechRecognizerViewController: UITableViewDataSource {
         cell.textLabel?.text = resturants[indexPath.row]
         return cell
     }
-}
-
-
-extension UIButton {
-    @IBInspectable var cornerRaduis: CGFloat  {
-        get {
-            return layer.cornerRadius
-        }
-        set {
-            layer.cornerRadius = newValue
-        }
-    }
-    
 }
 

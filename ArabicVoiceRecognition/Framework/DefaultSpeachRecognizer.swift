@@ -33,7 +33,7 @@ class DefaultSpeachRecognizer: SpeachRecognizer {
         speechRecognizer.recognitionTask(with: recognitionRequest) {  result, error in
             var isFinal = false
             
-            if let result = result {
+            if let result = result, result.isFinal {
                 // Update the text view with the results.
                 print(result.bestTranscription.formattedString)
                 textCompletion(result.bestTranscription.formattedString)
