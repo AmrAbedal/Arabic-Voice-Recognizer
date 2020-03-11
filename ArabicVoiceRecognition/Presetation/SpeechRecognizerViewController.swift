@@ -27,7 +27,11 @@ class SpeechRecognizerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         webView.navigationDelegate = self
+        setupWebView()
         setSubscribers()
+    }
+    private func setupWebView() {
+        webView.load(URLRequest(url: URL.init(string: "https://www.ubereats.com/en-US/feed/?pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMkFsJTIwRHVxcWklMjIlMkMlMjJyZWZlcmVuY2UlMjIlM0ElMjJDaElKQVkwRjFNVkdXQlFSMEhKS3Y2TXRnQU0lMjIlMkMlMjJyZWZlcmVuY2VUeXBlJTIyJTNBJTIyZ29vZ2xlX3BsYWNlcyUyMiUyQyUyMmxhdGl0dWRlJTIyJTNBMzAuMDM4MDE5NyUyQyUyMmxvbmdpdHVkZSUyMiUzQTMxLjIwOTk0NDYlN0Q%3D")!))
     }
     private func setSubscribers() {
         viewModel.textChangeSubject.subscribe({[weak self]

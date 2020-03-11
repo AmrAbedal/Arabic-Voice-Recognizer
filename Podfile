@@ -6,8 +6,10 @@ target 'ArabicVoiceRecognition' do
   use_frameworks!
 
   # Pods for Arabic Voice Recognition
-  pod 'RxSwift', '~> 5'
+#  pod 'RxSwift', '~> 5'
   pod 'SwiftSoup'
+  pod 'Moya/RxSwift'
+
 
 
 end

@@ -81,7 +81,7 @@
                                 </connections>
                             </tableView>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Sb-h3-yCg">
-                                <rect key="frame" x="-414" y="88" width="414" height="497.5"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="497.5"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -100,7 +100,7 @@
                             <constraint firstItem="0Sb-h3-yCg" firstAttribute="width" secondItem="qT5-7w-mOv" secondAttribute="width" id="PU0-2j-9sa"/>
                             <constraint firstItem="vmE-Xs-kSp" firstAttribute="top" secondItem="djM-3c-ouz" secondAttribute="bottom" constant="42" id="TyW-Ek-FGK"/>
                             <constraint firstItem="nKc-dA-n51" firstAttribute="trailing" secondItem="vmE-Xs-kSp" secondAttribute="trailing" constant="20" id="V7X-Rw-XJa"/>
-                            <constraint firstItem="0Sb-h3-yCg" firstAttribute="trailing" secondItem="nKc-dA-n51" secondAttribute="leading" id="how-Tb-ZaD"/>
+                            <constraint firstItem="0Sb-h3-yCg" firstAttribute="leading" secondItem="nKc-dA-n51" secondAttribute="leading" id="how-Tb-ZaD"/>
                             <constraint firstItem="nKc-dA-n51" firstAttribute="trailing" secondItem="a7Z-Me-vP4" secondAttribute="trailing" id="jEW-zi-XxW"/>
                             <constraint firstItem="nKc-dA-n51" firstAttribute="trailing" secondItem="djM-3c-ouz" secondAttribute="trailing" constant="20" id="kMh-e4-gDI"/>
                             <constraint firstItem="djM-3c-ouz" firstAttribute="top" secondItem="a7Z-Me-vP4" secondAttribute="bottom" id="qxg-j6-9MO"/>
