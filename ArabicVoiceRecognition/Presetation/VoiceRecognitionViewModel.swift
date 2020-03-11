@@ -24,7 +24,7 @@ class VoiceRecognitionViewModel {
         self.speexhRecognizer = speexhRecognizer
         self.areaCapture = areaCapture
     }
-    
+
     func startSpeechRecognition() {
         do { try speexhRecognizer.startRecognize(textCompletion: { [weak self] text in
             print(text)

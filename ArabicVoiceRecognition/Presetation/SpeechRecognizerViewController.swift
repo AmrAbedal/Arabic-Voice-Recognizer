@@ -30,8 +30,11 @@ class SpeechRecognizerViewController: UIViewController {
         setupWebView()
         setSubscribers()
     }
+    let dataSource = MoyaLoadResturantDataSource()
     private func setupWebView() {
-        webView.load(URLRequest(url: URL.init(string: "https://www.ubereats.com/en-US/feed/?pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMkFsJTIwRHVxcWklMjIlMkMlMjJyZWZlcmVuY2UlMjIlM0ElMjJDaElKQVkwRjFNVkdXQlFSMEhKS3Y2TXRnQU0lMjIlMkMlMjJyZWZlcmVuY2VUeXBlJTIyJTNBJTIyZ29vZ2xlX3BsYWNlcyUyMiUyQyUyMmxhdGl0dWRlJTIyJTNBMzAuMDM4MDE5NyUyQyUyMmxvbmdpdHVkZSUyMiUzQTMxLjIwOTk0NDYlN0Q%3D")!))
+        dataSource.loadResturat(area: "", searchText: "").subscribe({event in
+            print(event)
+        })
     }
     private func setSubscribers() {
         viewModel.textChangeSubject.subscribe({[weak self]
