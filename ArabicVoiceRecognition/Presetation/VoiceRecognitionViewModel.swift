@@ -37,7 +37,6 @@ class VoiceRecognitionViewModel {
         do { try speexhRecognizer.startRecognize(textCompletion: { [weak self] text in
             print(text)
             self?.textChangeSubject.onNext(text)
-//            self?.loadResturantsWithUberEats(text: text)
         }) } catch {
             print(error)
         }
@@ -49,18 +48,18 @@ class VoiceRecognitionViewModel {
     func loadResturantsWithUberEats(text: String) {
         areaCapture.getAreaName( onlyOne: true, completion: {
             areaName in
-                self.loadResturant(text: text, area: areaName)
+                self.loadResturant(area: areaName ,text : text)
         })
     }
   
-    private func loadResturant(text: String,area: String) {
-        loadResturantsUsecase(loadResturantsDataSource,text,area).subscribe(onSuccess: {
+    private func loadResturant(area: String,text: String) {
+        loadResturantsUsecase(loadResturantsDataSource,area,"كريب").subscribe(onSuccess: {
             result in
             print(result)
             self.resturantListSubject.onNext(result)
         }, onError: {
             error in
-            
+            print(error)
             }).disposed(by: disposBag)
     }
 }
