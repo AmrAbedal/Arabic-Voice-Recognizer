@@ -26,8 +26,17 @@ class SpeechRecognizerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setSubscribers()
+        doSomthing()
     }
-   
+   let dataSource = MoyaLoadLocationDataSource()
+    func doSomthing() {
+        dataSource.loadLocation(area: "Dokki").subscribe(onSuccess: {
+            resutlt in
+            print(resutlt)
+        }, onError: { error in
+            print(error)
+        }).disposed(by: disposeBag)
+    }
     private func setSubscribers() {
         viewModel.textChangeSubject.subscribe({[weak self]
             event in

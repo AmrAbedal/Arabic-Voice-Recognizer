@@ -52,16 +52,43 @@ class MoyaLoadResturantDataSource: LoadResturantDataSource {
 
 enum ResturantApi {
     case loadResturant(String,String)
+    case getLocations(area: String)
+}
+
+
+struct LocationResponce: Codable {
+    let data: [LocatinoData]
+}
+struct LocatinoData: Codable {
+    let addressLine1: String
+    
 }
 
 
 
+protocol LoadLocatinostDataSource {
+    func loadLocation(area: String) -> Single<LocationResponce>
+}
+
+class MoyaLoadLocationDataSource: LoadLocatinostDataSource {
+    func loadLocation(area: String) -> Single<LocationResponce> {
+        return provider.rx
+                         .request(.getLocations(area: area))
+                         .map{
+                             try JSONDecoder().decode(LocationResponce.self, from: $0.data)
+                     }
+    }
+    private let provider = MoyaProvider<ResturantApi>(plugins: [NetworkLoggerPlugin(verbose: true)])
+
+}
+
 extension ResturantApi: TargetType {
     /// Switch method depend on Case
     static let baseURLString = "https://www.ubereats.com/api/getSearchSuggestionsV1?localeCode=en-US"
+    static let getLocationsURL = "https://www.ubereats.com/api/getLocationAutocompleteV1?localeCode=eg"
     var method: Moya.Method {
         switch self {
-        case .loadResturant : return .post
+        case .loadResturant, .getLocations : return .post
         }
     }
     var sampleData: Data {
@@ -72,6 +99,7 @@ extension ResturantApi: TargetType {
         switch self{
         case .loadResturant(_, let text):
             return .requestParameters(parameters: ["userQuery":text,"date":"","startTime":0,"endTime":0], encoding: JSONEncoding.default)
+        case .getLocations(area: let areaName): return .requestParameters(parameters: ["query":areaName], encoding: JSONEncoding.default)
         }
     }
     /// Switch headers depend on Case
@@ -79,16 +107,22 @@ extension ResturantApi: TargetType {
         switch self {
         case .loadResturant(let area, let text):
             return getHeaders(area: area,text: text)
+        case .getLocations(area: let areaName): return getLoadAddressHeaders(area: areaName)
         }
     }
     /// Switch baseURL depend on Case
     var baseURL :URL {
-        return URL(string : ResturantApi.baseURLString)!
+        switch self {
+        case .loadResturant:
+            return URL(string : ResturantApi.baseURLString)!
+        case .getLocations:  return URL(string : ResturantApi.getLocationsURL)!
+      
+        }
     }
     /// Switch baseURL depend on Case
     var path: String {
         switch self {
-        case .loadResturant: return ""
+        case .loadResturant , .getLocations : return ""
         }
     }
 }
@@ -126,3 +160,25 @@ var fixedArabicURL: String?  {
            .union(CharacterSet.urlPathAllowed)
            .union(CharacterSet.urlHostAllowed))
    } }
+
+
+func getLoadAddressHeaders(area: String) -> [String: String] {
+    ["authority": "www.ubereats.com",
+"method": "POST",
+"path": "/api/getLocationAutocompleteV1?localeCode=eg",
+"scheme": "https",
+"accept":" */*",
+"accept-encoding": "gzip, deflate, br",
+"accept-language": "ar,en-US;q=0.9,en;q=0.8",
+"content-length": "16",
+"content-type": "application/json",
+"cookie": "uev2.id.xp=00b8cbdc-be47-44dd-9f60-51bcbdcd22f4; dId=39961ab1-d0e0-4bbd-9317-c2a094ee125d; uev2.id.session=0b4b89a5-6921-488e-8530-1b520d79e132; uev2.ts.session=1584016824112; jwt-session=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1ODQwMTY4MjQsImV4cCI6MTU4NDEwMzIyNH0.LD_CkKRJQoj2fvyNQs-v_-DcVdNb1hofKyV_UdqD7js; marketing_vistor_id=67bbfd91-387d-4c98-a45d-87a185658c2b; _userUuid=; _scid=95fb408c-343e-4933-a249-4f08ff289edd; _fbp=fb.1.1584016830227.2004027010; _gcl_au=1.1.2035325398.1584016830; _ga=GA1.2.1462486633.1584016830; _gid=GA1.2.535390884.1584016830; QSI_HistorySession=https%3A%2F%2Fwww.ubereats.com%2Feg~1584016830653; _sctr=1|1583964000000; uev2.loc=%7B%22address%22%3A%7B%22address1%22%3A%22%D8%A7%D9%84%D8%AF%D9%82%D9%8A%22%2C%22address2%22%3A%22%D8%A7%D9%84%D8%AF%D9%82%D9%89%D8%8C%20%D8%A7%D9%84%D8%AC%D9%8A%D8%B2%D8%A9%22%2C%22aptOrSuite%22%3A%22%22%2C%22city%22%3A%22%22%2C%22country%22%3A%22%22%2C%22eaterFormattedAddress%22%3A%22%D8%A7%D9%84%D8%AF%D9%82%D9%8A%D8%8C%20%D8%A7%D9%84%D8%AF%D9%82%D9%89%D8%8C%20%D8%A7%D9%84%D8%AC%D9%8A%D8%B2%D8%A9%D8%8C%20%D9%85%D8%B5%D8%B1%22%2C%22postalCode%22%3A%22%22%2C%22region%22%3A%22%22%2C%22subtitle%22%3A%22%D8%A7%D9%84%D8%AF%D9%82%D9%89%D8%8C%20%D8%A7%D9%84%D8%AC%D9%8A%D8%B2%D8%A9%22%2C%22title%22%3A%22%D8%A7%D9%84%D8%AF%D9%82%D9%8A%22%2C%22uuid%22%3A%22%22%7D%2C%22latitude%22%3A30.03945109999999%2C%22longitude%22%3A31.2025336%2C%22reference%22%3A%22ChIJkx2HJc1GWBQRSNzstAXvoXQ%22%2C%22referenceType%22%3A%22google_places%22%2C%22type%22%3A%22google_places%22%2C%22source%22%3A%22manual_auto_complete%22%7D; utag_main=v_id:0170cec2ab5d001ecde2b60827df03079001b07100838$_sn:1$_se:22$_ss:0$_st:1584018898424$ses_id:1584016829279%3Bexp-session$_pn:1%3Bexp-session",
+"origin": "https://www.ubereats.com",
+"referer": " https://www.ubereats.com/eg/search?pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMiVEOCVBNyVEOSU4NCVEOCVBRiVEOSU4MiVEOSU4QSUyMiUyQyUyMnJlZmVyZW5jZSUyMiUzQSUyMkNoSUpreDJISmMxR1dCUVJTTnpzdEFYdm9YUSUyMiUyQyUyMnJlZmVyZW5jZVR5cGUlMjIlM0ElMjJnb29nbGVfcGxhY2VzJTIyJTJDJTIybGF0aXR1ZGUlMjIlM0EzMC4wMzk0NTEwOTk5OTk5OSUyQyUyMmxvbmdpdHVkZSUyMiUzQTMxLjIwMjUzMzYlN0Q%3D&q=%D9%83%D8%B4%D8%B1%D9%8A",
+"sec-fetch-dest": "empty",
+"sec-fetch-mode": "cors",
+"sec-fetch-site": "same-origin",
+"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36",
+"x-csrf-token": "x"]
+    
+}

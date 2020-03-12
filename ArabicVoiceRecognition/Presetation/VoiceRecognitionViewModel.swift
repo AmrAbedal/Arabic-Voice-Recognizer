@@ -53,7 +53,7 @@ class VoiceRecognitionViewModel {
     }
   
     private func loadResturant(area: String,text: String) {
-        loadResturantsUsecase(loadResturantsDataSource,area,"كريب").subscribe(onSuccess: {
+        loadResturantsUsecase(loadResturantsDataSource,area,text).subscribe(onSuccess: {
             result in
             print(result)
             self.resturantListSubject.onNext(result)
