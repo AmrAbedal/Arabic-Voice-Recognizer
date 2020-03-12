@@ -62,7 +62,7 @@
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a7Z-Me-vP4">
                                 <rect key="frame" x="0.0" y="88" width="414" height="517.5"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ResturantCell" id="wEB-4O-lqh">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -70,9 +70,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wEB-4O-lqh" id="IFN-wS-EGv">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -80,33 +80,21 @@
                                     <outlet property="delegate" destination="OUw-tb-bX9" id="u2G-bw-mo5"/>
                                 </connections>
                             </tableView>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Sb-h3-yCg">
-                                <rect key="frame" x="0.0" y="88" width="414" height="497.5"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="djM-3c-ouz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nKc-dA-n51" secondAttribute="leading" constant="20" id="5wR-p0-A8j"/>
                             <constraint firstItem="a7Z-Me-vP4" firstAttribute="leading" secondItem="nKc-dA-n51" secondAttribute="leading" id="6CT-fB-XU2"/>
-                            <constraint firstItem="djM-3c-ouz" firstAttribute="top" secondItem="0Sb-h3-yCg" secondAttribute="bottom" constant="20" id="Fzh-IY-Cc6"/>
                             <constraint firstItem="n4D-jC-5Zp" firstAttribute="top" secondItem="vmE-Xs-kSp" secondAttribute="bottom" constant="27" id="K0p-bU-bDA"/>
                             <constraint firstItem="a7Z-Me-vP4" firstAttribute="top" secondItem="nKc-dA-n51" secondAttribute="top" id="Npn-nK-CGy"/>
-                            <constraint firstItem="0Sb-h3-yCg" firstAttribute="width" secondItem="qT5-7w-mOv" secondAttribute="width" id="PU0-2j-9sa"/>
                             <constraint firstItem="vmE-Xs-kSp" firstAttribute="top" secondItem="djM-3c-ouz" secondAttribute="bottom" constant="42" id="TyW-Ek-FGK"/>
                             <constraint firstItem="nKc-dA-n51" firstAttribute="trailing" secondItem="vmE-Xs-kSp" secondAttribute="trailing" constant="20" id="V7X-Rw-XJa"/>
-                            <constraint firstItem="0Sb-h3-yCg" firstAttribute="leading" secondItem="nKc-dA-n51" secondAttribute="leading" id="how-Tb-ZaD"/>
                             <constraint firstItem="nKc-dA-n51" firstAttribute="trailing" secondItem="a7Z-Me-vP4" secondAttribute="trailing" id="jEW-zi-XxW"/>
                             <constraint firstItem="nKc-dA-n51" firstAttribute="trailing" secondItem="djM-3c-ouz" secondAttribute="trailing" constant="20" id="kMh-e4-gDI"/>
                             <constraint firstItem="djM-3c-ouz" firstAttribute="top" secondItem="a7Z-Me-vP4" secondAttribute="bottom" id="qxg-j6-9MO"/>
                             <constraint firstItem="n4D-jC-5Zp" firstAttribute="centerX" secondItem="nKc-dA-n51" secondAttribute="centerX" id="sbV-ca-SvF"/>
                             <constraint firstItem="nKc-dA-n51" firstAttribute="bottom" secondItem="n4D-jC-5Zp" secondAttribute="bottom" constant="30" id="yT7-VC-4fN"/>
-                            <constraint firstItem="0Sb-h3-yCg" firstAttribute="top" secondItem="nKc-dA-n51" secondAttribute="top" id="zwS-gs-7qC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nKc-dA-n51"/>
                     </view>
@@ -116,7 +104,6 @@
                         <outlet property="recordButton" destination="n4D-jC-5Zp" id="BK4-I9-lml"/>
                         <outlet property="searchUberEatsApi" destination="gKf-sP-6l3" id="nJt-1h-fW4"/>
                         <outlet property="textLabel" destination="djM-3c-ouz" id="O4C-BI-Dxs"/>
-                        <outlet property="webView" destination="0Sb-h3-yCg" id="kfZ-L0-ac2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CoB-Mw-IAM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

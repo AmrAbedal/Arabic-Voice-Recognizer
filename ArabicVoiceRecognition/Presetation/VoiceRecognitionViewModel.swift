@@ -11,25 +11,33 @@ import RxSwift
 import SwiftSoup
 
 
-
 class VoiceRecognitionViewModel {
+    private let disposBag = DisposeBag()
     let textChangeSubject = BehaviorSubject<String?>(value: nil)
-    let resturantListSubject = BehaviorSubject<[String]?>(value: nil)
-    let loadUrlSubject = BehaviorSubject<URLRequest?>(value: nil)
+    let resturantListSubject = BehaviorSubject<[Resturant]?>(value: nil)
+
+    typealias loadResturantsType = (LoadResturantDataSource, String, String) -> Single <[Resturant]>
+    let loadResturantsDataSource: LoadResturantDataSource
+    let loadResturantsUsecase: loadResturantsType
     let areaCapture: AreaNameCapture
     let speexhRecognizer: SpeachRecognizer
     init(speexhRecognizer: SpeachRecognizer = DefaultSpeachRecognizer(voiceCapture: AVFoundationVoiceCapture()),
-        areaCapture: AreaNameCapture = AppleAreaNameCapture(locationCapture: AppleCoreLocationCapture())
+        areaCapture: AreaNameCapture = AppleAreaNameCapture(locationCapture: AppleCoreLocationCapture()),
+        loadResturantsDataSource: LoadResturantDataSource = MoyaLoadResturantDataSource(),
+        loadResturantsUsecase: @escaping loadResturantsType = loadResturantsUseCase
+    
     ) {
         self.speexhRecognizer = speexhRecognizer
         self.areaCapture = areaCapture
+        self.loadResturantsDataSource = loadResturantsDataSource
+        self.loadResturantsUsecase = loadResturantsUsecase
     }
 
     func startSpeechRecognition() {
         do { try speexhRecognizer.startRecognize(textCompletion: { [weak self] text in
             print(text)
             self?.textChangeSubject.onNext(text)
-            
+//            self?.loadResturantsWithUberEats(text: text)
         }) } catch {
             print(error)
         }
@@ -37,39 +45,22 @@ class VoiceRecognitionViewModel {
     func stopSpeachRecognition() {
         speexhRecognizer.stop()
     }
-    func getResturantFrom(html: String) {
-           do {
-               let html: String = html;
-               let doc: Document = try SwiftSoup.parse(html)
-               let link: Elements = try doc.getElementsByClass("ap aq ar as dl bf be bd")
-               print(link.array().map({ try? $0.text()}))
-               if let resturants = link.array().map({ try? $0.text()}) as? [String] {
-                resturantListSubject.onNext(resturants)
-               }
-              
-           } catch Exception.Error(let type, let message) {
-               print(message)
-           } catch {
-               print("error")
-           }
-       }
-     func loadResturantsWithUberEats(text: String) {
+  
+    func loadResturantsWithUberEats(text: String) {
         areaCapture.getAreaName( onlyOne: true, completion: {
             areaName in
-                self.loadUberEats(text: text, Area: areaName)
+                self.loadResturant(text: text, area: areaName)
         })
     }
-    private func loadUberEats(text: String,Area: String) {
-        let baseString =  Constants.uberSearch
-               var comps = URLComponents(string: baseString)!
-        let searchQuery = URLQueryItem(name:Constants.searchTextKey, value: text)
-        let areaKey = URLQueryItem(name:Constants.areaTextKey, value: Area)
-               comps.queryItems = [areaKey,searchQuery]
-               guard let url = comps.url else {
-                   print("Error in url arabic")
-                   return
-               }
-               let myRequest = URLRequest(url: url)
-               loadUrlSubject.onNext(myRequest)
+  
+    private func loadResturant(text: String,area: String) {
+        loadResturantsUsecase(loadResturantsDataSource,text,area).subscribe(onSuccess: {
+            result in
+            print(result)
+            self.resturantListSubject.onNext(result)
+        }, onError: {
+            error in
+            
+            }).disposed(by: disposBag)
     }
 }

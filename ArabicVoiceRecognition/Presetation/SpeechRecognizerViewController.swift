@@ -13,9 +13,8 @@ import SwiftSoup
 import CoreLocation
 
 class SpeechRecognizerViewController: UIViewController {
-    private var resturants: [String] = []
+    private var resturants: [Resturant] = []
     @IBOutlet weak var ResturantTableView: UITableView!
-    @IBOutlet weak var webView: WKWebView!
     private var disposeBag = DisposeBag()
     private lazy var viewModel = {
         return VoiceRecognitionViewModel.init()
@@ -26,16 +25,9 @@ class SpeechRecognizerViewController: UIViewController {
     @IBOutlet weak var searchUberEatsApi: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
-        webView.navigationDelegate = self
-        setupWebView()
         setSubscribers()
     }
-    let dataSource = MoyaLoadResturantDataSource()
-    private func setupWebView() {
-        dataSource.loadResturat(area: "", searchText: "").subscribe({event in
-            print(event)
-        })
-    }
+   
     private func setSubscribers() {
         viewModel.textChangeSubject.subscribe({[weak self]
             event in
@@ -47,12 +39,6 @@ class SpeechRecognizerViewController: UIViewController {
             event in
             if let elemnt = event.element , let resturantsNames = elemnt {
                 self?.handleResturants(restrantsNames: resturantsNames)
-            }
-        }).disposed(by: disposeBag)
-        viewModel.loadUrlSubject.subscribe({[weak self]
-            event in
-            if let elemnt = event.element , let urlRequest = elemnt {
-                self?.webView.load(urlRequest)
             }
         }).disposed(by: disposeBag)
     }
@@ -77,19 +63,8 @@ class SpeechRecognizerViewController: UIViewController {
     }
 }
 
-extension SpeechRecognizerViewController : WKNavigationDelegate {
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        getHtml()
-    }
-    func getHtml() {
-        webView.evaluateJavaScript(Constants.getHtmlEvaluator,
-                                   completionHandler: { (html: Any?, error: Error?) in
-                                    if let content = html as? String {
-                                        self.viewModel.getResturantFrom(html: content)
-                                    }
-        }) }
-    
-    private func handleResturants(restrantsNames: [String]) {
+extension SpeechRecognizerViewController  {
+    private func handleResturants(restrantsNames: [Resturant]) {
         resturants = restrantsNames
         ResturantTableView.reloadData()
     }
@@ -100,7 +75,7 @@ extension SpeechRecognizerViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResturantCell")!
-        cell.textLabel?.text = resturants[indexPath.row]
+        cell.textLabel?.text = resturants[indexPath.row].name
         return cell
     }
 }

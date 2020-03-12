@@ -30,7 +30,7 @@ func loadResturantsUseCase(dataSource: LoadResturantDataSource,area: String,sear
     })
 }
 fileprivate func getResturantFrom(resturantResponce: ResturantResponce) -> [Resturant] {
-    return []
+    return resturantResponce.data.map({Resturant(name: $0.store.title)})
 }
 
 protocol LoadResturantDataSource {
