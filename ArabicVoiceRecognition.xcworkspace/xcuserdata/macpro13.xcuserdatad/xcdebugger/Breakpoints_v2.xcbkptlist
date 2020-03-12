@@ -7,48 +7,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "48A9EC84-8D4B-4F72-8D15-5183857AA7A7"
+            uuid = "A06111EA-CDF5-4F13-9BA9-46187388B619"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ArabicVoiceRecognition/Presetation/SpeechRecognizerViewController.swift"
+            filePath = "ArabicVoiceRecognition/Presetation/VoiceRecognitionViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "doSomthing()"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "loadLocations(area:text:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7B0B3A50-A774-42DF-B2CF-6ADC4DEE5502"
+            uuid = "D6D80D1A-893A-4664-A1A8-D53A319E93FD"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ArabicVoiceRecognition/Presetation/SpeechRecognizerViewController.swift"
+            filePath = "ArabicVoiceRecognition/Presetation/VoiceRecognitionViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "doSomthing()"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "handleLocations(locations:text:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A59A8863-4712-47F1-B611-95B8BF862F46"
+            uuid = "31C6D479-DDA5-4472-AC02-994488B4A701"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ArabicVoiceRecognition/Framework/LoadResturantsUseCase.swift"
+            filePath = "ArabicVoiceRecognition/Presetation/VoiceRecognitionViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "loadLocation(area:)"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "loadResturant(area:text:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

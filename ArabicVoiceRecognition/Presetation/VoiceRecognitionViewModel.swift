@@ -15,7 +15,9 @@ class VoiceRecognitionViewModel {
     private let disposBag = DisposeBag()
     let textChangeSubject = BehaviorSubject<String?>(value: nil)
     let resturantListSubject = BehaviorSubject<[Resturant]?>(value: nil)
-
+    typealias loadLocationUseCaseType = (LoadLocatinostDataSource , String) -> Single<[LocatinoScreenData]>
+    let loadLocationUseCase: loadLocationUseCaseType
+    let loadLocationDataSource: LoadLocatinostDataSource
     typealias loadResturantsType = (LoadResturantDataSource, String, String) -> Single <[Resturant]>
     let loadResturantsDataSource: LoadResturantDataSource
     let loadResturantsUsecase: loadResturantsType
@@ -24,13 +26,17 @@ class VoiceRecognitionViewModel {
     init(speexhRecognizer: SpeachRecognizer = DefaultSpeachRecognizer(voiceCapture: AVFoundationVoiceCapture()),
         areaCapture: AreaNameCapture = AppleAreaNameCapture(locationCapture: AppleCoreLocationCapture()),
         loadResturantsDataSource: LoadResturantDataSource = MoyaLoadResturantDataSource(),
-        loadResturantsUsecase: @escaping loadResturantsType = loadResturantsUseCase
-    
+        loadResturantsUsecase: @escaping loadResturantsType = loadResturantsUseCase,
+         loadLocationDataSource: LoadLocatinostDataSource = MoyaLoadLocationDataSource(),
+
+         loadLocationUseCase: @escaping loadLocationUseCaseType = loadLocationUseCae
     ) {
         self.speexhRecognizer = speexhRecognizer
         self.areaCapture = areaCapture
         self.loadResturantsDataSource = loadResturantsDataSource
         self.loadResturantsUsecase = loadResturantsUsecase
+        self.loadLocationUseCase = loadLocationUseCase
+        self.loadLocationDataSource = loadLocationDataSource
     }
 
     func startSpeechRecognition() {
@@ -48,10 +54,25 @@ class VoiceRecognitionViewModel {
     func loadResturantsWithUberEats(text: String) {
         areaCapture.getAreaName( onlyOne: true, completion: {
             areaName in
-                self.loadResturant(area: areaName ,text : text)
+                self.loadLocations(area: areaName ,text : text)
         })
     }
-  
+    private func loadLocations(area: String,text: String) {
+        loadLocationUseCase(loadLocationDataSource,area).subscribe(onSuccess: {
+                result in
+                print(result)
+            self.handleLocations(locations: result, text: text)
+            }, onError: {
+                error in
+                print(error)
+                }).disposed(by: disposBag)
+        }
+    
+    private func handleLocations(locations: [LocatinoScreenData],text: String) {
+        if let id = locations.first?.addressLine2 {
+            loadResturant(area: id, text: text)
+        }
+    }
     private func loadResturant(area: String,text: String) {
         loadResturantsUsecase(loadResturantsDataSource,area,text).subscribe(onSuccess: {
             result in

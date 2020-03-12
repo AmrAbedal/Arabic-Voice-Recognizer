@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A0544F1424083311005CD956 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0544F1324083311005CD956 /* UIButtonExtension.swift */; };
 		A0544F16240837C6005CD956 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0544F15240837C6005CD956 /* Constants.swift */; };
+		A08832A8241A7EF200B43951 /* LoadLocationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08832A7241A7EF200B43951 /* LoadLocationUseCase.swift */; };
 		A0D13E1524044829002E0CE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D13E1424044829002E0CE9 /* AppDelegate.swift */; };
 		A0D13E1724044829002E0CE9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D13E1624044829002E0CE9 /* SceneDelegate.swift */; };
 		A0D13E1C24044829002E0CE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D13E1A24044829002E0CE9 /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		73ACF10E9703C7E74C0372FD /* Pods-Arabic Voice Recognition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arabic Voice Recognition.debug.xcconfig"; path = "Target Support Files/Pods-Arabic Voice Recognition/Pods-Arabic Voice Recognition.debug.xcconfig"; sourceTree = "<group>"; };
 		A0544F1324083311005CD956 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		A0544F15240837C6005CD956 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A08832A7241A7EF200B43951 /* LoadLocationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadLocationUseCase.swift; sourceTree = "<group>"; };
 		A0D13E1124044829002E0CE9 /* ArabicVoiceRecognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArabicVoiceRecognition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D13E1424044829002E0CE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0D13E1624044829002E0CE9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			children = (
 				A0D13E30240475C5002E0CE9 /* AVFoundationVoiceCapture.swift */,
 				A0FB2D3C241976DD00125A6A /* LoadResturantsUseCase.swift */,
+				A08832A7241A7EF200B43951 /* LoadLocationUseCase.swift */,
 				A0F42EA724071C5700C7511A /* AppleAreaNameCapture.swift */,
 				A0F42EA524071C2000C7511A /* AppleCoreLocationCapture.swift */,
 				A0D13E3224047604002E0CE9 /* DefaultSpeachRecognizer.swift */,
@@ -284,6 +287,7 @@
 				A0D13E2F24046D43002E0CE9 /* SpeachRecognizer.swift in Sources */,
 				A0D13E2B24046ACF002E0CE9 /* VoiceRecognitionViewModel.swift in Sources */,
 				A0F42EA824071C5700C7511A /* AppleAreaNameCapture.swift in Sources */,
+				A08832A8241A7EF200B43951 /* LoadLocationUseCase.swift in Sources */,
 				A0F42EA42406FFBE00C7511A /* AreaNameCapture.swift in Sources */,
 				A0D13E2D24046B74002E0CE9 /* VoiceCapture.swift in Sources */,
 				A0544F1424083311005CD956 /* UIButtonExtension.swift in Sources */,
