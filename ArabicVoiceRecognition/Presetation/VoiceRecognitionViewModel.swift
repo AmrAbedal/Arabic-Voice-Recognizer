@@ -23,14 +23,13 @@ class VoiceRecognitionViewModel {
     let loadResturantsUsecase: loadResturantsType
     let areaCapture: AreaNameCapture
     let speexhRecognizer: SpeachRecognizer
+    
     init(speexhRecognizer: SpeachRecognizer = DefaultSpeachRecognizer(voiceCapture: AVFoundationVoiceCapture()),
-        areaCapture: AreaNameCapture = AppleAreaNameCapture(locationCapture: AppleCoreLocationCapture()),
-        loadResturantsDataSource: LoadResturantDataSource = MoyaLoadResturantDataSource(),
-        loadResturantsUsecase: @escaping loadResturantsType = loadResturantsUseCase,
+         areaCapture: AreaNameCapture = AppleAreaNameCapture(locationCapture: AppleCoreLocationCapture()),
+         loadResturantsDataSource: LoadResturantDataSource = MoyaLoadResturantDataSource(),
+         loadResturantsUsecase: @escaping loadResturantsType = loadResturantsUseCase,
          loadLocationDataSource: LoadLocatinostDataSource = MoyaLoadLocationDataSource(),
-
-         loadLocationUseCase: @escaping loadLocationUseCaseType = loadLocationUseCae
-    ) {
+         loadLocationUseCase: @escaping loadLocationUseCaseType = loadLocationUseCae ) {
         self.speexhRecognizer = speexhRecognizer
         self.areaCapture = areaCapture
         self.loadResturantsDataSource = loadResturantsDataSource
@@ -38,7 +37,7 @@ class VoiceRecognitionViewModel {
         self.loadLocationUseCase = loadLocationUseCase
         self.loadLocationDataSource = loadLocationDataSource
     }
-
+    
     func startSpeechRecognition() {
         do { try speexhRecognizer.startRecognize(textCompletion: { [weak self] text in
             print(text)
@@ -50,29 +49,30 @@ class VoiceRecognitionViewModel {
     func stopSpeachRecognition() {
         speexhRecognizer.stop()
     }
-  
-    func loadResturantsWithUberEats(text: String) {
+    
+    func fetchResturantsWith(searchText: String) {
         areaCapture.getAreaName( onlyOne: true, completion: {
             areaName in
-                self.loadLocations(area: areaName ,text : text)
+            self.loadLocations(area: areaName ,text : searchText)
         })
     }
     private func loadLocations(area: String,text: String) {
         loadLocationUseCase(loadLocationDataSource,area).subscribe(onSuccess: {
-                result in
-                print(result)
+            result in
+            print(result)
             self.handleLocations(locations: result, text: text)
-            }, onError: {
-                error in
-                print(error)
-                }).disposed(by: disposBag)
-        }
+        }, onError: {
+            error in
+            print(error)
+        }).disposed(by: disposBag)
+    }
     
     private func handleLocations(locations: [LocatinoScreenData],text: String) {
-        if let id = locations.first?.addressLine2 {
-            loadResturant(area: id, text: text)
+        if let areaName = locations.first?.addressLine2 {
+            loadResturant(area: areaName, text: text)
         }
     }
+    
     private func loadResturant(area: String,text: String) {
         loadResturantsUsecase(loadResturantsDataSource,area,text).subscribe(onSuccess: {
             result in
@@ -81,7 +81,7 @@ class VoiceRecognitionViewModel {
         }, onError: {
             error in
             print(error)
-            }).disposed(by: disposBag)
+        }).disposed(by: disposBag)
     }
 }
 

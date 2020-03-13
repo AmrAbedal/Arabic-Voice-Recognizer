@@ -112,7 +112,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "57"
             endingLineNumber = "57"
-            landmarkName = "loadResturantsWithUberEats(text:)"
+            landmarkName = "fetchResturantsWith(searchText:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -128,7 +128,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "55"
             endingLineNumber = "55"
-            landmarkName = "loadResturantsWithUberEats(text:)"
+            landmarkName = "fetchResturantsWith(searchText:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -289,6 +289,22 @@
             startingLineNumber = "63"
             endingLineNumber = "63"
             landmarkName = "loadLocations(area:text:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0BF480A4-C3EE-4C48-8655-5708F2536EDC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ArabicVoiceRecognition/Framework/AppleAreaNameCapture.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "getAreaName(onlyOne:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -50,7 +50,7 @@ class SpeechRecognizerViewController: UIViewController {
     private func setText(text: String) {
         textLabel.text = text
         if searchUberEatsApi.isOn {
-            self.viewModel.loadResturantsWithUberEats(text: text)
+            self.viewModel.fetchResturantsWith(searchText: text)
         }
     }
     @IBAction func longPressAction(_ sender: UILongPressGestureRecognizer) {
