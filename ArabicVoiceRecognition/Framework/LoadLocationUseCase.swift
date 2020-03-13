@@ -14,6 +14,7 @@ import Moya
 enum ResturantApi {
     case loadResturant(String,String)
     case getLocations(area: String)
+    case getFeed(String,String)
 }
 
 

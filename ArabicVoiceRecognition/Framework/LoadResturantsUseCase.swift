@@ -15,10 +15,10 @@ struct Resturant {
     let name: String
 }
 struct ResturantResponce: Codable {
-    let data: [ResponceData]
+    let data: ResponceData
 }
 struct ResponceData: Codable {
-    let store: Store
+    let storesMap: [String: Store]
 }
 
 struct Store: Codable {
@@ -30,7 +30,7 @@ func loadResturantsUseCase(dataSource: LoadResturantDataSource,area: String,sear
     })
 }
 fileprivate func getResturantFrom(resturantResponce: ResturantResponce) -> [Resturant] {
-    return resturantResponce.data.map({Resturant(name: $0.store.title)})
+    return resturantResponce.data.storesMap.map({Resturant(name: $0.value.title)})
 }
 
 protocol LoadResturantDataSource {
@@ -40,7 +40,7 @@ protocol LoadResturantDataSource {
 class MoyaLoadResturantDataSource: LoadResturantDataSource {
     func loadResturat(area: String, searchText: String) -> Single<ResturantResponce> {
         return provider.rx
-                   .request(.loadResturant(area, searchText))
+                   .request(.getFeed(area, searchText))
                    .map{
                        try JSONDecoder().decode(ResturantResponce.self, from: $0.data)
                }
@@ -55,9 +55,10 @@ extension ResturantApi: TargetType {
     /// Switch method depend on Case
     static let baseURLString = "https://www.ubereats.com/api/getSearchSuggestionsV1?localeCode=en-US"
     static let getLocationsURL = "https://www.ubereats.com/api/getLocationAutocompleteV1?localeCode=eg"
+    static let getFeed = "https://www.ubereats.com/api/getFeedV1?localeCode=eg"
     var method: Moya.Method {
         switch self {
-        case .loadResturant, .getLocations : return .post
+        case .loadResturant, .getLocations , .getFeed : return .post
         }
     }
     var sampleData: Data {
@@ -69,6 +70,10 @@ extension ResturantApi: TargetType {
         case .loadResturant(_, let text):
             return .requestParameters(parameters: ["userQuery":text,"date":"","startTime":0,"endTime":0], encoding: JSONEncoding.default)
         case .getLocations(area: let areaName): return .requestParameters(parameters: ["query":areaName], encoding: JSONEncoding.default)
+        case .getFeed(let area, let text):
+            return .requestParameters(parameters: ["cacheKey":"JTdCJTIyYWRkcmVzcyUyMiUzQSUyMiVEOCVBNyVEOSU4NCVEOCVCMiVEOSU4NSVEOCVBNyVEOSU4NCVEOSU4MyUyMiUyQyUyMnJlZmVyZW5jZSUyMiUzQSUyMkNoSUpKWUxaV2VCQVdCUVJYQ0dMTGxodnk1RSUyMiUyQyUyMnJlZmVyZW5jZVR5cGUlMjIlM0ElMjJnb29nbGVfcGxhY2VzJTIyJTJDJTIybGF0aXR1ZGUlMjIlM0EzMC4wNjEzMzklMkMlMjJsb25naXR1ZGUlMjIlM0EzMS4yMTg4OTY0JTdE/DELIVERY/كشري//0/0//JTVCJTVE/","feedSessionCount":[
+    "announcementCount":0,
+    "announcementLabel":""],"userQuery":"كشري","date":"","startTime":0,"endTime":0,"carouselId":"","sortAndFilters":[]], encoding: JSONEncoding.default)
         }
     }
     /// Switch headers depend on Case
@@ -77,6 +82,7 @@ extension ResturantApi: TargetType {
         case .loadResturant(let area, let text):
             return getHeaders(area: area,text: text)
         case .getLocations(area: let areaName): return getLoadAddressHeaders(area: areaName)
+        case .getFeed(let area, let text) : return LoadResturantsHeaders(area: area, text: text)
         }
     }
     /// Switch baseURL depend on Case
@@ -85,13 +91,14 @@ extension ResturantApi: TargetType {
         case .loadResturant:
             return URL(string : ResturantApi.baseURLString)!
         case .getLocations:  return URL(string : ResturantApi.getLocationsURL)!
+        case .getFeed: return URL(string : ResturantApi.getFeed)!
       
         }
     }
     /// Switch baseURL depend on Case
     var path: String {
         switch self {
-        case .loadResturant , .getLocations : return ""
+        case .loadResturant , .getLocations, .getFeed : return ""
         }
     }
 }
@@ -150,4 +157,27 @@ func getLoadAddressHeaders(area: String) -> [String: String] {
 "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36",
 "x-csrf-token": "x"]
     
+}
+
+
+
+func LoadResturantsHeaders(area: String,text: String) -> [String: String] {
+    
+    ["method": "POST",
+    "scheme": "https",
+    "authority": "www.ubereats.com",
+    "path": "/api/getFeedV1?localeCode=eg",
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept-Language": "en-us",
+    "Host": "www.ubereats.com",
+    "Origin": "https://www.ubereats.com",
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.4 Safari/605.1.15",
+    "Connection": "keep-alive",
+    "Referer": "https://www.ubereats.com/eg/search?pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMiVEOCVBNyVEOSU4NCVEOCVCMiVEOSU4NSVEOCVBNyVEOSU4NCVEOSU4MyUyMiUyQyUyMnJlZmVyZW5jZSUyMiUzQSUyMkNoSUpKWUxaV2VCQVdCUVJYQ0dMTGxodnk1RSUyMiUyQyUyMnJlZmVyZW5jZVR5cGUlMjIlM0ElMjJnb29nbGVfcGxhY2VzJTIyJTJDJTIybGF0aXR1ZGUlMjIlM0EzMC4wNjEzMzklMkMlMjJsb25naXR1ZGUlMjIlM0EzMS4yMTg4OTY0JTdE&q=%D9%83%D8%B4%D8%B1%D9%8A",
+    "Content-Length": "514",
+    "Cookie": "_fbp=fb.1.1584130379510.1423175676; _gcl_au=1.1.2005771371.1584130380; _userUuid=; utag_main=v_id:0170d5874c3800146e1fbd05930f01077017d06f00838$_sn:1$_se:8$_ss:0$_st:1584132222154$ses_id:1584130378816%3Bexp-session$_pn:1%3Bexp-session; marketing_vistor_id=732d345c-77ea-4ce1-bde8-068796bd3873; uev2.id.session=229629fd-7198-49e7-9fde-a4868b3a5b02; uev2.ts.session=1584130357687; _ga=GA1.2.635740806.1584130379; _gid=GA1.2.357878062.1584130379; _scid=9aac0303-9b82-46ae-8c6b-dfc504a6ecdf; uev2.loc=%7B%22address%22%3A%7B%22address1%22%3A%22Zamalek%22%2C%22address2%22%3A%22Cairo%20Governorate%22%2C%22aptOrSuite%22%3A%22%22%2C%22city%22%3A%22%22%2C%22country%22%3A%22%22%2C%22eaterFormattedAddress%22%3A%22Zamalek%2C%20Cairo%20Governorate%2C%20Egypt%22%2C%22postalCode%22%3A%22%22%2C%22region%22%3A%22%22%2C%22subtitle%22%3A%22Cairo%20Governorate%22%2C%22title%22%3A%22Zamalek%22%2C%22uuid%22%3A%22%22%7D%2C%22latitude%22%3A30.061339%2C%22longitude%22%3A31.2188964%2C%22reference%22%3A%22ChIJJYLZWeBAWBQRXCGLLlhvy5E%22%2C%22referenceType%22%3A%22google_places%22%2C%22type%22%3A%22google_places%22%2C%22source%22%3A%22rev_geo_reference%22%7D; dId=78d0e740-8bbc-4a13-86c4-6913196c6e4d; uev2.id.xp=caea8df0-b47a-4015-a303-62c9aea20b32; jwt-session=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1ODQxMzAzNTcsImV4cCI6MTU4NDIxNjc1N30.JvN6qjNg9yfsDoRikJG6j2Dvh4FxPX5iNNyiQ23mOk8",
+    "x-csrf-token": "x"]
+
 }
