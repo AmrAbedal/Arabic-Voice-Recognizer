@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A0544F1424083311005CD956 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0544F1324083311005CD956 /* UIButtonExtension.swift */; };
 		A0544F16240837C6005CD956 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0544F15240837C6005CD956 /* Constants.swift */; };
+		A08832A8241A7EF200B43951 /* LocationResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08832A7241A7EF200B43951 /* LocationResponce.swift */; };
 		A0D13E1524044829002E0CE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D13E1424044829002E0CE9 /* AppDelegate.swift */; };
 		A0D13E1724044829002E0CE9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D13E1624044829002E0CE9 /* SceneDelegate.swift */; };
 		A0D13E1C24044829002E0CE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D13E1A24044829002E0CE9 /* Main.storyboard */; };
@@ -20,10 +21,21 @@
 		A0D13E31240475C5002E0CE9 /* AVFoundationVoiceCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D13E30240475C5002E0CE9 /* AVFoundationVoiceCapture.swift */; };
 		A0D13E3324047604002E0CE9 /* DefaultSpeachRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D13E3224047604002E0CE9 /* DefaultSpeachRecognizer.swift */; };
 		A0D13E3524047A4A002E0CE9 /* SpeechRecognizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D13E3424047A4A002E0CE9 /* SpeechRecognizerViewController.swift */; };
+		A0D68676241C2F6B00140415 /* ResturanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D68675241C2F6B00140415 /* ResturanTableViewCell.swift */; };
+		A0D6867A241C381E00140415 /* ResturantResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D68679241C381E00140415 /* ResturantResponce.swift */; };
+		A0D6867C241C385600140415 /* LoadResturantDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D6867B241C385600140415 /* LoadResturantDataSource.swift */; };
+		A0D6867E241C388100140415 /* MoyaLoadResturantDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D6867D241C388100140415 /* MoyaLoadResturantDataSource.swift */; };
+		A0D68681241C392900140415 /* LoadLocatinostDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D68680241C392900140415 /* LoadLocatinostDataSource.swift */; };
+		A0D68683241C395800140415 /* MoyaLoadLocationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D68682241C395800140415 /* MoyaLoadLocationDataSource.swift */; };
+		A0D68685241C399400140415 /* loadLocationUseCae.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D68684241C399400140415 /* loadLocationUseCae.swift */; };
+		A0D68688241C3A2E00140415 /* Resturant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D68687241C3A2E00140415 /* Resturant.swift */; };
+		A0D6868A241C3A9F00140415 /* ResturantApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D68689241C3A9F00140415 /* ResturantApi.swift */; };
+		A0D6868C241C3B5600140415 /* ResturantApis.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D6868B241C3B5600140415 /* ResturantApis.swift */; };
 		A0F42EA22406FF8000C7511A /* LocationCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F42EA12406FF8000C7511A /* LocationCapture.swift */; };
 		A0F42EA42406FFBE00C7511A /* AreaNameCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F42EA32406FFBE00C7511A /* AreaNameCapture.swift */; };
 		A0F42EA624071C2000C7511A /* AppleCoreLocationCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F42EA524071C2000C7511A /* AppleCoreLocationCapture.swift */; };
 		A0F42EA824071C5700C7511A /* AppleAreaNameCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F42EA724071C5700C7511A /* AppleAreaNameCapture.swift */; };
+		A0FB2D3D241976DD00125A6A /* LoadResturantsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FB2D3C241976DD00125A6A /* LoadResturantsUseCase.swift */; };
 		DF174C41CBD554FAB2A3F456 /* Pods_ArabicVoiceRecognition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD31625E96581127FBF4CCA /* Pods_ArabicVoiceRecognition.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +44,7 @@
 		73ACF10E9703C7E74C0372FD /* Pods-Arabic Voice Recognition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arabic Voice Recognition.debug.xcconfig"; path = "Target Support Files/Pods-Arabic Voice Recognition/Pods-Arabic Voice Recognition.debug.xcconfig"; sourceTree = "<group>"; };
 		A0544F1324083311005CD956 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		A0544F15240837C6005CD956 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A08832A7241A7EF200B43951 /* LocationResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationResponce.swift; sourceTree = "<group>"; };
 		A0D13E1124044829002E0CE9 /* ArabicVoiceRecognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArabicVoiceRecognition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D13E1424044829002E0CE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0D13E1624044829002E0CE9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,10 +58,21 @@
 		A0D13E30240475C5002E0CE9 /* AVFoundationVoiceCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVFoundationVoiceCapture.swift; sourceTree = "<group>"; };
 		A0D13E3224047604002E0CE9 /* DefaultSpeachRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSpeachRecognizer.swift; sourceTree = "<group>"; };
 		A0D13E3424047A4A002E0CE9 /* SpeechRecognizerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizerViewController.swift; sourceTree = "<group>"; };
+		A0D68675241C2F6B00140415 /* ResturanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResturanTableViewCell.swift; sourceTree = "<group>"; };
+		A0D68679241C381E00140415 /* ResturantResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResturantResponce.swift; sourceTree = "<group>"; };
+		A0D6867B241C385600140415 /* LoadResturantDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadResturantDataSource.swift; sourceTree = "<group>"; };
+		A0D6867D241C388100140415 /* MoyaLoadResturantDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoadResturantDataSource.swift; sourceTree = "<group>"; };
+		A0D68680241C392900140415 /* LoadLocatinostDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadLocatinostDataSource.swift; sourceTree = "<group>"; };
+		A0D68682241C395800140415 /* MoyaLoadLocationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoadLocationDataSource.swift; sourceTree = "<group>"; };
+		A0D68684241C399400140415 /* loadLocationUseCae.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadLocationUseCae.swift; sourceTree = "<group>"; };
+		A0D68687241C3A2E00140415 /* Resturant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resturant.swift; sourceTree = "<group>"; };
+		A0D68689241C3A9F00140415 /* ResturantApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResturantApi.swift; sourceTree = "<group>"; };
+		A0D6868B241C3B5600140415 /* ResturantApis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResturantApis.swift; sourceTree = "<group>"; };
 		A0F42EA12406FF8000C7511A /* LocationCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCapture.swift; sourceTree = "<group>"; };
 		A0F42EA32406FFBE00C7511A /* AreaNameCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaNameCapture.swift; sourceTree = "<group>"; };
 		A0F42EA524071C2000C7511A /* AppleCoreLocationCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleCoreLocationCapture.swift; sourceTree = "<group>"; };
 		A0F42EA724071C5700C7511A /* AppleAreaNameCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleAreaNameCapture.swift; sourceTree = "<group>"; };
+		A0FB2D3C241976DD00125A6A /* LoadResturantsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadResturantsUseCase.swift; sourceTree = "<group>"; };
 		A59ECA546B0E95B156979F34 /* Pods-ArabicVoiceRecognition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArabicVoiceRecognition.release.xcconfig"; path = "Target Support Files/Pods-ArabicVoiceRecognition/Pods-ArabicVoiceRecognition.release.xcconfig"; sourceTree = "<group>"; };
 		DA237A848B07C4C057730ECC /* Pods-ArabicVoiceRecognition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArabicVoiceRecognition.debug.xcconfig"; path = "Target Support Files/Pods-ArabicVoiceRecognition/Pods-ArabicVoiceRecognition.debug.xcconfig"; sourceTree = "<group>"; };
 		FCD31625E96581127FBF4CCA /* Pods_ArabicVoiceRecognition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArabicVoiceRecognition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				A0D13E3424047A4A002E0CE9 /* SpeechRecognizerViewController.swift */,
+				A0D68675241C2F6B00140415 /* ResturanTableViewCell.swift */,
 				A0D13E2A24046ACF002E0CE9 /* VoiceRecognitionViewModel.swift */,
 			);
 			path = Presetation;
@@ -89,6 +114,7 @@
 		A0B8ACDF2405BB910082E4BD /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				A0D6867F241C38D800140415 /* UseCases */,
 				A0B8ACE02405BBAB0082E4BD /* Protocols */,
 			);
 			path = Domain;
@@ -98,6 +124,9 @@
 			isa = PBXGroup;
 			children = (
 				A0D13E2C24046B74002E0CE9 /* VoiceCapture.swift */,
+				A0D68689241C3A9F00140415 /* ResturantApi.swift */,
+				A0D68680241C392900140415 /* LoadLocatinostDataSource.swift */,
+				A0D6867B241C385600140415 /* LoadResturantDataSource.swift */,
 				A0F42EA12406FF8000C7511A /* LocationCapture.swift */,
 				A0F42EA32406FFBE00C7511A /* AreaNameCapture.swift */,
 				A0D13E2E24046D43002E0CE9 /* SpeachRecognizer.swift */,
@@ -109,9 +138,12 @@
 			isa = PBXGroup;
 			children = (
 				A0D13E30240475C5002E0CE9 /* AVFoundationVoiceCapture.swift */,
+				A0D68682241C395800140415 /* MoyaLoadLocationDataSource.swift */,
+				A0D6867D241C388100140415 /* MoyaLoadResturantDataSource.swift */,
 				A0F42EA724071C5700C7511A /* AppleAreaNameCapture.swift */,
 				A0F42EA524071C2000C7511A /* AppleCoreLocationCapture.swift */,
 				A0D13E3224047604002E0CE9 /* DefaultSpeachRecognizer.swift */,
+				A0D6868B241C3B5600140415 /* ResturantApis.swift */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
@@ -144,12 +176,48 @@
 				A0D13E222404482B002E0CE9 /* Info.plist */,
 				A0B8ACDE2405BB4A0082E4BD /* Presetation */,
 				A0B8ACDF2405BB910082E4BD /* Domain */,
+				A0D68677241C37D100140415 /* Entities */,
 				A0B8ACE12405BBD40082E4BD /* Framework */,
 				A0D13E1A24044829002E0CE9 /* Main.storyboard */,
 				A0D13E1D2404482B002E0CE9 /* Assets.xcassets */,
 				A0D13E1F2404482B002E0CE9 /* LaunchScreen.storyboard */,
 			);
 			path = ArabicVoiceRecognition;
+			sourceTree = "<group>";
+		};
+		A0D68677241C37D100140415 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				A0D68686241C3A1900140415 /* ScreenEntities */,
+				A0D68678241C37E300140415 /* JsonEntities */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		A0D68678241C37E300140415 /* JsonEntities */ = {
+			isa = PBXGroup;
+			children = (
+				A0D68679241C381E00140415 /* ResturantResponce.swift */,
+				A08832A7241A7EF200B43951 /* LocationResponce.swift */,
+			);
+			path = JsonEntities;
+			sourceTree = "<group>";
+		};
+		A0D6867F241C38D800140415 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				A0FB2D3C241976DD00125A6A /* LoadResturantsUseCase.swift */,
+				A0D68684241C399400140415 /* loadLocationUseCae.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		A0D68686241C3A1900140415 /* ScreenEntities */ = {
+			isa = PBXGroup;
+			children = (
+				A0D68687241C3A2E00140415 /* Resturant.swift */,
+			);
+			path = ScreenEntities;
 			sourceTree = "<group>";
 		};
 		C945208127BB5654E99BB653 /* Frameworks */ = {
@@ -276,19 +344,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0F42EA624071C2000C7511A /* AppleCoreLocationCapture.swift in Sources */,
+				A0D6868C241C3B5600140415 /* ResturantApis.swift in Sources */,
+				A0D68685241C399400140415 /* loadLocationUseCae.swift in Sources */,
+				A0D68688241C3A2E00140415 /* Resturant.swift in Sources */,
 				A0D13E3324047604002E0CE9 /* DefaultSpeachRecognizer.swift in Sources */,
 				A0F42EA22406FF8000C7511A /* LocationCapture.swift in Sources */,
 				A0D13E2F24046D43002E0CE9 /* SpeachRecognizer.swift in Sources */,
 				A0D13E2B24046ACF002E0CE9 /* VoiceRecognitionViewModel.swift in Sources */,
+				A0D68681241C392900140415 /* LoadLocatinostDataSource.swift in Sources */,
+				A0D68676241C2F6B00140415 /* ResturanTableViewCell.swift in Sources */,
 				A0F42EA824071C5700C7511A /* AppleAreaNameCapture.swift in Sources */,
+				A08832A8241A7EF200B43951 /* LocationResponce.swift in Sources */,
+				A0D6868A241C3A9F00140415 /* ResturantApi.swift in Sources */,
+				A0D6867C241C385600140415 /* LoadResturantDataSource.swift in Sources */,
 				A0F42EA42406FFBE00C7511A /* AreaNameCapture.swift in Sources */,
 				A0D13E2D24046B74002E0CE9 /* VoiceCapture.swift in Sources */,
+				A0D6867E241C388100140415 /* MoyaLoadResturantDataSource.swift in Sources */,
 				A0544F1424083311005CD956 /* UIButtonExtension.swift in Sources */,
 				A0D13E1524044829002E0CE9 /* AppDelegate.swift in Sources */,
 				A0D13E3524047A4A002E0CE9 /* SpeechRecognizerViewController.swift in Sources */,
 				A0544F16240837C6005CD956 /* Constants.swift in Sources */,
 				A0D13E31240475C5002E0CE9 /* AVFoundationVoiceCapture.swift in Sources */,
+				A0D68683241C395800140415 /* MoyaLoadLocationDataSource.swift in Sources */,
+				A0FB2D3D241976DD00125A6A /* LoadResturantsUseCase.swift in Sources */,
 				A0D13E1724044829002E0CE9 /* SceneDelegate.swift in Sources */,
+				A0D6867A241C381E00140415 /* ResturantResponce.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

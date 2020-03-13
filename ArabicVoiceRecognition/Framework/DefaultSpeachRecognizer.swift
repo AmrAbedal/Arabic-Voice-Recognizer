@@ -11,10 +11,11 @@ import Speech
 
 class DefaultSpeachRecognizer: SpeachRecognizer {
     private  var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
-    private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier:  "ar_SA"))!
+    private let speechRecognizer: SFSpeechRecognizer
     private let voiceCapture: VoiceCapture
-    init(voiceCapture: VoiceCapture)  {
+    init(voiceCapture: VoiceCapture,speechRecognizer: SFSpeechRecognizer = SFSpeechRecognizer(locale: Locale(identifier:  "ar_SA"))!)  {
         self.voiceCapture = voiceCapture
+        self.speechRecognizer = speechRecognizer
     }
     private func setupVoiceCapture() throws {
         try voiceCapture.startCapture(completion: {
@@ -23,9 +24,9 @@ class DefaultSpeachRecognizer: SpeachRecognizer {
         })
     }
     func startRecognize(textCompletion:@escaping (String)->()) throws  {
-       try setupVoiceCapture()
+        try setupVoiceCapture()
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
-       guard let recognitionRequest = recognitionRequest else { fatalError("Unable to create a SFSpeechAudioBufferRecognitionRequest object") }
+        guard let recognitionRequest = recognitionRequest else { fatalError("Unable to create a SFSpeechAudioBufferRecognitionRequest object") }
         recognitionRequest.shouldReportPartialResults = true
         if #available(iOS 13, *) {
             recognitionRequest.requiresOnDeviceRecognition = false
@@ -45,7 +46,7 @@ class DefaultSpeachRecognizer: SpeachRecognizer {
                 self.stop()
             }
         }
-       try voiceCapture.start()
+        try voiceCapture.start()
     }
     func stop() {
         voiceCapture.stop()
