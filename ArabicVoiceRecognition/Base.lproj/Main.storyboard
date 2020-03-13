@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Speech Recognizer View Controller-->
+        <!--المطاعم-->
         <scene sceneID="dEB-TE-zOw">
             <objects>
                 <viewController id="OUw-tb-bX9" customClass="SpeechRecognizerViewController" customModule="ArabicVoiceRecognition" customModuleProvider="target" sceneMemberID="viewController">
@@ -64,15 +64,41 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="517.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ResturantCell" id="wEB-4O-lqh">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ResturantCell" rowHeight="350" id="wEB-4O-lqh" customClass="ResturanTableViewCell" customModule="ArabicVoiceRecognition" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="350"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wEB-4O-lqh" id="IFN-wS-EGv">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZEk-fw-zPR">
+                                                    <rect key="frame" x="0.0" y="5" width="414" height="276"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="276" id="BWW-Fm-f0j"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCP-hn-Axo">
+                                                    <rect key="frame" x="357.5" y="301" width="46.5" height="39"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="NCP-hn-Axo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IFN-wS-EGv" secondAttribute="leading" constant="10" id="6cw-jh-d23"/>
+                                                <constraint firstItem="ZEk-fw-zPR" firstAttribute="width" secondItem="IFN-wS-EGv" secondAttribute="width" id="PU0-rf-DDu"/>
+                                                <constraint firstItem="ZEk-fw-zPR" firstAttribute="top" secondItem="IFN-wS-EGv" secondAttribute="top" constant="5" id="QRJ-7x-HE1"/>
+                                                <constraint firstItem="ZEk-fw-zPR" firstAttribute="centerX" secondItem="IFN-wS-EGv" secondAttribute="centerX" id="SpG-rF-jFw"/>
+                                                <constraint firstAttribute="bottom" secondItem="NCP-hn-Axo" secondAttribute="bottom" constant="10" id="sRK-tK-Edm"/>
+                                                <constraint firstAttribute="trailing" secondItem="NCP-hn-Axo" secondAttribute="trailing" constant="10" id="vKr-U7-dOd"/>
+                                                <constraint firstItem="NCP-hn-Axo" firstAttribute="top" secondItem="ZEk-fw-zPR" secondAttribute="bottom" constant="20" id="z3r-sJ-BsX"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="resturantImageView" destination="ZEk-fw-zPR" id="McG-k8-PLd"/>
+                                            <outlet property="resturantNameLabel" destination="NCP-hn-Axo" id="54D-aP-ww4"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -98,7 +124,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nKc-dA-n51"/>
                     </view>
-                    <navigationItem key="navigationItem" id="OB5-Da-APN"/>
+                    <navigationItem key="navigationItem" title="المطاعم" id="OB5-Da-APN"/>
                     <connections>
                         <outlet property="ResturantTableView" destination="a7Z-Me-vP4" id="R5J-RP-ToA"/>
                         <outlet property="recordButton" destination="n4D-jC-5Zp" id="BK4-I9-lml"/>

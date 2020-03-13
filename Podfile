@@ -9,6 +9,8 @@ target 'ArabicVoiceRecognition' do
 #  pod 'RxSwift', '~> 5'
   pod 'SwiftSoup'
   pod 'Moya/RxSwift'
+  pod 'SDWebImage'
+
 
 
 

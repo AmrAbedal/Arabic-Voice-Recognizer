@@ -25,7 +25,12 @@ class SpeechRecognizerViewController: UIViewController {
     @IBOutlet weak var searchUberEatsApi: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableView()
         setSubscribers()
+    }
+    private func setupTableView() {
+        ResturantTableView.rowHeight = UITableView.automaticDimension
+        ResturantTableView.estimatedRowHeight = 300
     }
   
     private func setSubscribers() {
@@ -74,8 +79,8 @@ extension SpeechRecognizerViewController: UITableViewDataSource {
         return resturants.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ResturantCell")!
-        cell.textLabel?.text = resturants[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ResturantCell") as! ResturanTableViewCell
+        cell.configure(resturant: resturants[indexPath.row] )
         return cell
     }
 }
